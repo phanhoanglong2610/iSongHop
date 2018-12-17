@@ -3,15 +3,17 @@ import { TranslateModule } from '@ngx-translate/core';
 import { IonicPageModule } from 'ionic-angular';
 
 import { AlohaPage } from './aloha';
-import { HeaderPage } from '../header/header';
+import { HeaderPageModule } from '../header/header.module';
+import { FooterPageModule } from '../footer/footer.module';
 
 @NgModule({
   declarations: [
     AlohaPage,
-    HeaderPage,
   ],
   imports: [
     IonicPageModule.forChild(AlohaPage),
+    HeaderPageModule,
+    FooterPageModule,
     TranslateModule.forChild()
   ],
   exports: [

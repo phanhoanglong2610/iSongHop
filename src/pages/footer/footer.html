@@ -1,0 +1,31 @@
+<ion-item-group color="light" no-lines inset>
+    <ion-item-divider>
+        {{ 'FOOTER_COMPANY_NAME' | translate }}
+    </ion-item-divider>
+    <ion-item text-wrap>
+        {{ 'FOOTER_COPYRIGHT' | translate }}
+    </ion-item>
+    <ion-item-divider>
+        {{ 'FOOTER_HQ' | translate }}
+    </ion-item-divider>
+    <ion-item text-wrap>
+        <ion-icon name="map" item-start></ion-icon>{{ 'FOOTER_ADDRESS' | translate }}
+    </ion-item>
+    <ion-item text-wrap>
+        <ion-icon name="mail" item-start></ion-icon>{{ 'FOOTER_EMAIL' | translate }}
+    </ion-item>
+    <ion-item text-wrap>
+        <ion-icon name="call" item-start></ion-icon>{{ 'FOOTER_PHONE' | translate }}
+    </ion-item>
+    <ion-item-divider>
+        {{ 'FOOTER_APP_TITLE' | translate }}
+    </ion-item-divider>
+    <ion-item text-wrap>
+        <button ion-button clear="true" class="storeicon" (click)="openAppStore()">
+            <img src="../assets/img/layout/appstore.png"/>
+        </button>
+        <button ion-button clear="true" class="storeicon" (click)="openPlayStore()">
+            <img src="../assets/img/layout/googleplay.png"/>
+        </button>
+    </ion-item>
+</ion-item-group>

@@ -2,20 +2,20 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 
 /**
- * The Header Page is a splash page that quickly describes the app,
+ * The Footer Page is a splash page that quickly describes the app,
  * and then directs the user to create an account or log in.
  * If you'd like to immediately put the user onto a login/signup page,
- * we recommend not using the Header page.
+ * we recommend not using the Footer page.
 */
 @IonicPage({
-	'name': 'header',
-	'segment': 'header'
+	'name': 'footer',
+	'segment': 'footer'
 })
 @Component({
-  selector: 'page-header',
-  templateUrl: 'header.html'
+  selector: 'page-footer',
+  templateUrl: 'footer.html'
 })
-export class HeaderPage {
+export class FooterPage {
 
   constructor(public navCtrl: NavController) { }
 
