@@ -1,10 +1,33 @@
-  <ion-navbar color="primary-light">
+  <ion-navbar color="dark">
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>
-        Zaloha Spa
+        <span class="logo-wrapper">
+            <img src="../assets/img/logo.png"/>
+        </span>
+        <span class="slogan-wrapper">
+            {{ 'ALOHA_SLOGAN' | translate }}
+        </span>
+        <span class="heart-wrapper">
+            <ion-icon name="heart">50</ion-icon>
+        </span>
     </ion-title>
     <ion-buttons end>
-        <button ion-button class="button-out" (click)="signOut()">
-            <ion-icon name="home"></ion-icon>
+        <button ion-button class="button-signUp" (click)="signUp()">
+            <ion-icon name="code-download"></ion-icon>
+        </button>
+        <button ion-button class="button-signIn" (click)="signIn()">
+            <ion-icon name="log-in"></ion-icon>
+        </button>
+        <button ion-button class="button-signOut" (click)="signOut()">
+            <ion-icon name="log-out"></ion-icon>
+        </button>
+        <button ion-button class="button-showSearch" (click)="showSearch()">
+            <ion-icon name="search"></ion-icon>
+        </button>
+        <button ion-button class="button-showCart" (click)="showCart()">
+            <ion-icon name="cart"></ion-icon>
         </button>
     </ion-buttons>
   </ion-navbar>
