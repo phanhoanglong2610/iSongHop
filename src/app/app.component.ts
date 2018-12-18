@@ -17,8 +17,8 @@ export class MyApp {
 
   pages: any[] = [
     { title: 'Home', component: 'AlohaPage'},
-    { title: 'Dịch vụ Spa', component: 'AlohaPage'},
-    { title: 'Mỹ phẩm cao cấp', component: 'AlohaPage'},
+    { title: 'Dịch vụ Spa', component: 'CategoryListPage', params: {cat_id: 1, cat_name: 'Dịch vụ Spa'}},
+    { title: 'Mỹ phẩm cao cấp', component: 'CategoryListPage', params: {cat_id: 2, cat_name: 'Mỹ phẩm cao cấp'}},
     { title: 'Start-Up', component: 'AlohaPage'},
     { title: 'Spa tại nhà', component: 'AlohaPage'},
     { title: 'Bếp trị liệu', component: 'AlohaPage'},
@@ -76,6 +76,6 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    this.nav.setRoot(page.component, page.params);
   }
 }

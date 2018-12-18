@@ -1,0 +1,67 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Dịch vụ Spa",
+      "slug": "dich-vu-spa",
+      "email": "sebastian@codingthesmartway.com",
+      "parent-id": 0
+    },
+    {
+      "id": 2,
+      "name": "Mỹ phẩm cao cấp",
+      "slug": "my-pham-cao-cap",
+      "email": "steve@codingthesmartway.com",
+      "parent-id": 0
+    },
+    {
+      "id": 3,
+      "name": "Start-Up",
+      "slug": "start-up",
+      "email": "ann@codingthesmartway.com",
+      "parent-id": 0
+    }
+  ],
+  "categories-1": [
+    {
+      "id": 11,
+      "name": "Dịch vụ Spa 1",
+      "slug": "dich-vu-spa 1",
+      "email": "sebastian@codingthesmartway.com",
+      "parent-id": 1,
+      "picture": "../assets/img/categories/cat-11.jpg"
+    },
+    {
+      "id": 12,
+      "name": "Dịch vụ Spa 2",
+      "slug": "dich-vu-spa 2",
+      "email": "sebastian@codingthesmartway.com",
+      "parent-id": 1,
+      "picture": "../assets/img/categories/cat-12.jpg"
+    },
+    {
+      "id": 13,
+      "name": "Dịch vụ Spa 3",
+      "slug": "dich-vu-spa 3",
+      "email": "sebastian@codingthesmartway.com",
+      "parent-id": 1,
+      "picture": "../assets/img/categories/cat-13.jpg"
+    },
+    {
+      "id": 14,
+      "name": "Dịch vụ Spa 4",
+      "slug": "dich-vu-spa 4",
+      "email": "sebastian@codingthesmartway.com",
+      "parent-id": 1,
+      "picture": "../assets/img/categories/cat-14.jpg"
+    },
+    {
+      "id": 15,
+      "name": "Dịch vụ Spa 5",
+      "slug": "dich-vu-spa 5",
+      "email": "sebastian@codingthesmartway.com",
+      "parent-id": 1,
+      "picture": "../assets/img/categories/cat-15.jpg"
+    }
+  ]
+}
