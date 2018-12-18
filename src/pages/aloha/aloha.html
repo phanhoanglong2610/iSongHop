@@ -11,24 +11,20 @@
     <page-slide></page-slide>  
   </div>
   <div>
-    <ion-list>
-      <ion-item-sliding *ngFor="let item of currentCategories">
-        <button ion-item (click)="openItem(item)">
-          <div>
-            <img [src]="item.picture" />
-          </div>
-          <h2>{{item.name}}</h2>
-          <p>{{item.slug}}</p>
-          <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note>
-        </button>
-
-        <ion-item-options>
-          <button ion-button color="danger" (click)="deleteItem(item)">
-            {{ 'DELETE_BUTTON' | translate }}
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let item of currentCategories" col-12 col-md-6 col-lg-4 col-xl-3>
+          <button ion-item (click)="openItem(item)">
+            <div>
+              <img [src]="item.picture" />
+            </div>
+            <h2>{{item.name}}</h2>
+            <p>{{item.slug}}</p>
+            <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note>
           </button>
-        </ion-item-options>
-      </ion-item-sliding>  
-    </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
   
   <page-footer></page-footer>
