@@ -66,7 +66,7 @@
   "SEARCH_TITLE": "Search",
   "SEARCH_PLACEHOLDER": "Search the items list, e.g. \"Donald Duck\"",
 
-  "ALOHA_INTRO": "Zaloha Spa",
+  "ALOHA_INTRO": "Mua sắm cùng Alohaspa.vn",
   "ALOHA_SLOGAN": "Gieo hạt yêu thương",
   "FOOTER_COMPANY_NAME": "CÔNG TY CP ĐT PT SX TM ZALOHA",
   "FOOTER_COPYRIGHT": "Giấy phép đăng ký kinh doanh số 0314162361 do Sở kế hoạch đầu tư TPHCM cấp",
@@ -74,5 +74,8 @@
   "FOOTER_ADDRESS": "Địa chỉ: 312 Lê Văn Lương , Phường Tân Hưng, Quận 7, Tp. Hồ Chí Minh",
   "FOOTER_EMAIL": "Email: alohaspa102@gmail.com",
   "FOOTER_PHONE": "Điện thoại: 0913387578",
-  "FOOTER_APP_TITLE": "ỨNG DỤNG ALOHASPA"
+  "FOOTER_APP_TITLE": "ỨNG DỤNG ALOHASPA",
+
+  "SLIDE_INTRO_1": "WELCOME TO THAN TAM TRI SPA",
+  "SLIDE_INTRO_2": "ALOHA - APP ỨNG DỤNG CHĂM SÓC SỨC KHỎE & SẮC ĐẸP CỦA BẠN"
 }

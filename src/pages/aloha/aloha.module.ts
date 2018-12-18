@@ -5,6 +5,7 @@ import { IonicPageModule } from 'ionic-angular';
 import { AlohaPage } from './aloha';
 import { HeaderPageModule } from '../header/header.module';
 import { FooterPageModule } from '../footer/footer.module';
+import { SlidePageModule } from '../slide/slide.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { FooterPageModule } from '../footer/footer.module';
     IonicPageModule.forChild(AlohaPage),
     HeaderPageModule,
     FooterPageModule,
+    SlidePageModule,
     TranslateModule.forChild()
   ],
   exports: [
