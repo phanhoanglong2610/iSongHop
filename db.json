@@ -1,25 +1,28 @@
 {
-  "categories": [
+  "categories-0": [
     {
       "id": 1,
       "name": "Dịch vụ Spa",
       "slug": "dich-vu-spa",
       "email": "sebastian@codingthesmartway.com",
-      "parent-id": 0
+      "parent-id": 0,
+      "picture": "../assets/img/categories/cat-11.jpg"
     },
     {
       "id": 2,
       "name": "Mỹ phẩm cao cấp",
       "slug": "my-pham-cao-cap",
       "email": "steve@codingthesmartway.com",
-      "parent-id": 0
+      "parent-id": 0,
+      "picture": "../assets/img/categories/cat-11.jpg"
     },
     {
       "id": 3,
       "name": "Start-Up",
       "slug": "start-up",
       "email": "ann@codingthesmartway.com",
-      "parent-id": 0
+      "parent-id": 0,
+      "picture": "../assets/img/categories/cat-11.jpg"
     }
   ],
   "categories-1": [

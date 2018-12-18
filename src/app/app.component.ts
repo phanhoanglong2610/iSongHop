@@ -16,7 +16,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   pages: any[] = [
-    { title: 'Home', component: 'AlohaPage'},
+    { title: 'Home', component: 'AlohaPage', params: {cat_id: 0, cat_name: ""}},
     { title: 'Dịch vụ Spa', component: 'CategoryListPage', params: {cat_id: 1, cat_name: 'Dịch vụ Spa'}},
     { title: 'Mỹ phẩm cao cấp', component: 'CategoryListPage', params: {cat_id: 2, cat_name: 'Mỹ phẩm cao cấp'}},
     { title: 'Start-Up', component: 'AlohaPage'},

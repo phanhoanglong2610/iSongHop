@@ -11,11 +11,11 @@ import { Categories } from '../../providers';
 })
 export class CategoryListPage {
   currentCategories: Category[];
-  cat_id: integer;
+  cat_id: int = 0;
   cat_name: string;
 
   constructor(public navCtrl: NavController, public items: Categories, public modalCtrl: ModalController, public navParams: NavParams) {
-    this.cat_id = navParams.get("cat_id");
+    this.cat_id = navParams.get("cat_id") || this.cat_id;
     this.cat_name = navParams.get("cat_name");
     this.items.query({cat_id: this.cat_id}).subscribe(data => {
       this.currentCategories = data;

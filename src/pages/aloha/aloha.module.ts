@@ -6,6 +6,7 @@ import { AlohaPage } from './aloha';
 import { HeaderPageModule } from '../header/header.module';
 import { FooterPageModule } from '../footer/footer.module';
 import { SlidePageModule } from '../slide/slide.module';
+import { CategoryListPageModule } from '../category-list/category-list.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { SlidePageModule } from '../slide/slide.module';
     HeaderPageModule,
     FooterPageModule,
     SlidePageModule,
+    CategoryListPageModule,
     TranslateModule.forChild()
   ],
   exports: [

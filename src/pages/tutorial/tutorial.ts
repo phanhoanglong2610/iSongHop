@@ -51,7 +51,7 @@ export class TutorialPage {
   }
 
   startApp() {
-    this.navCtrl.setRoot('AlohaPage', {}, {
+    this.navCtrl.setRoot('AlohaPage', {cat_id: 0}, {
       animate: true,
       direction: 'forward'
     });
