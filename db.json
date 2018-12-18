@@ -6,7 +6,7 @@
       "slug": "dich-vu-spa",
       "email": "sebastian@codingthesmartway.com",
       "parent-id": 0,
-      "picture": "../assets/img/categories/cat-11.jpg"
+      "picture": "../assets/img/categories/cat-1.jpg"
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "slug": "my-pham-cao-cap",
       "email": "steve@codingthesmartway.com",
       "parent-id": 0,
-      "picture": "../assets/img/categories/cat-11.jpg"
+      "picture": "../assets/img/categories/cat-2.jpg"
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "slug": "start-up",
       "email": "ann@codingthesmartway.com",
       "parent-id": 0,
-      "picture": "../assets/img/categories/cat-11.jpg"
+      "picture": "../assets/img/categories/cat-3.jpg"
     },
     {
       "id": 4,
@@ -30,7 +30,7 @@
       "slug": "dich-vu-spa",
       "email": "sebastian@codingthesmartway.com",
       "parent-id": 0,
-      "picture": "../assets/img/categories/cat-11.jpg"
+      "picture": "../assets/img/categories/cat-4.jpg"
     },
     {
       "id": 5,
@@ -38,7 +38,7 @@
       "slug": "my-pham-cao-cap",
       "email": "steve@codingthesmartway.com",
       "parent-id": 0,
-      "picture": "../assets/img/categories/cat-11.jpg"
+      "picture": "../assets/img/categories/cat-5.jpg"
     },
     {
       "id": 6,
@@ -46,7 +46,7 @@
       "slug": "start-up",
       "email": "ann@codingthesmartway.com",
       "parent-id": 0,
-      "picture": "../assets/img/categories/cat-11.jpg"
+      "picture": "../assets/img/categories/cat-6.jpg"
     },
     {
       "id": 7,
@@ -54,7 +54,7 @@
       "slug": "dich-vu-spa",
       "email": "sebastian@codingthesmartway.com",
       "parent-id": 0,
-      "picture": "../assets/img/categories/cat-11.jpg"
+      "picture": "../assets/img/categories/cat-7.jpg"
     },
     {
       "id": 8,
@@ -62,7 +62,7 @@
       "slug": "my-pham-cao-cap",
       "email": "steve@codingthesmartway.com",
       "parent-id": 0,
-      "picture": "../assets/img/categories/cat-11.jpg"
+      "picture": "../assets/img/categories/cat-8.jpg"
     },
     {
       "id": 9,
@@ -70,7 +70,7 @@
       "slug": "start-up",
       "email": "ann@codingthesmartway.com",
       "parent-id": 0,
-      "picture": "../assets/img/categories/cat-11.jpg"
+      "picture": "../assets/img/categories/cat-9.jpg"
     }
   ],
   "categories-1": [
@@ -112,6 +112,14 @@
       "slug": "dich-vu-spa 5",
       "email": "sebastian@codingthesmartway.com",
       "parent-id": 1,
+      "picture": "../assets/img/categories/cat-15.jpg"
+    }
+  ],
+  "products": [
+    {
+      "id": 1001,
+      "name": "Product 1",
+      "slug": "product-1",
       "picture": "../assets/img/categories/cat-15.jpg"
     }
   ]

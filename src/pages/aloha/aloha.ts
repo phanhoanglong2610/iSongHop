@@ -29,11 +29,8 @@ export class AlohaPage {
     });
   }
 
-  login() {
-    this.navCtrl.push('LoginPage');
+  openItem(item) {
+    this.navCtrl.push('CategoryListPage', {cat_id: item.id});
   }
 
-  signup() {
-    this.navCtrl.push('SignupPage');
-  }
 }
