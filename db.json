@@ -2,7 +2,7 @@
   "categories-0": [
     {
       "id": 1,
-      "name": "Dịch vụ Spa",
+      "name": "Sữa rửa mặt/ Tẩy trang",
       "slug": "dich-vu-spa",
       "email": "sebastian@codingthesmartway.com",
       "parent-id": 0,
@@ -10,7 +10,7 @@
     },
     {
       "id": 2,
-      "name": "Mỹ phẩm cao cấp",
+      "name": "Dịch vụ chăm sóc sắc đẹp",
       "slug": "my-pham-cao-cap",
       "email": "steve@codingthesmartway.com",
       "parent-id": 0,
@@ -18,7 +18,7 @@
     },
     {
       "id": 3,
-      "name": "Start-Up",
+      "name": "Nguồn biển",
       "slug": "start-up",
       "email": "ann@codingthesmartway.com",
       "parent-id": 0,
@@ -26,7 +26,7 @@
     },
     {
       "id": 4,
-      "name": "Dịch vụ Spa",
+      "name": "Làm sáng - Trẻ hóa da",
       "slug": "dich-vu-spa",
       "email": "sebastian@codingthesmartway.com",
       "parent-id": 0,
@@ -34,7 +34,7 @@
     },
     {
       "id": 5,
-      "name": "Mỹ phẩm cao cấp",
+      "name": "Mềm mịn chuyên sâu",
       "slug": "my-pham-cao-cap",
       "email": "steve@codingthesmartway.com",
       "parent-id": 0,
@@ -42,7 +42,7 @@
     },
     {
       "id": 6,
-      "name": "Start-Up",
+      "name": "Kem dưỡng chống lão hóa",
       "slug": "start-up",
       "email": "ann@codingthesmartway.com",
       "parent-id": 0,
@@ -50,7 +50,7 @@
     },
     {
       "id": 7,
-      "name": "Dịch vụ Spa",
+      "name": "Mỹ phẩm cao cấp",
       "slug": "dich-vu-spa",
       "email": "sebastian@codingthesmartway.com",
       "parent-id": 0,
@@ -58,7 +58,7 @@
     },
     {
       "id": 8,
-      "name": "Mỹ phẩm cao cấp",
+      "name": "Sản phẩm hữu cơ & đông y",
       "slug": "my-pham-cao-cap",
       "email": "steve@codingthesmartway.com",
       "parent-id": 0,
@@ -66,7 +66,7 @@
     },
     {
       "id": 9,
-      "name": "Start-Up",
+      "name": "Bếp ăn trị liệu",
       "slug": "start-up",
       "email": "ann@codingthesmartway.com",
       "parent-id": 0,
@@ -115,12 +115,143 @@
       "picture": "../assets/img/categories/cat-15.jpg"
     }
   ],
-  "products": [
+  "products-cat-id-11": [
     {
       "id": 1001,
-      "name": "Product 1",
-      "slug": "product-1",
-      "picture": "../assets/img/categories/cat-15.jpg"
+      "name": "White Plus - Trắng sáng chuyên sâu",
+      "slug": "product-1001",
+      "price": "2,000,000",
+      "star": 5,
+      "review": 1,
+      "picture": "../assets/img/products/product-1001.jpg"
+    },
+    {
+      "id": 1002,
+      "name": "Chăm sóc chuyên sâu sau Peeling",
+      "slug": "product-1002",
+      "price": "1,500,000",
+      "star": 4,
+      "review": 1,
+      "picture": "../assets/img/products/product-1002.jpg"
+    },
+    {
+      "id": 1003,
+      "name": "Chăm sóc chuyên sâu trước Peeling",
+      "slug": "product-1003",
+      "price": "1,200,000",
+      "star": 3,
+      "review": 1,
+      "picture": "../assets/img/products/product-1003.jpg"
+    },
+    {
+      "id": 1004,
+      "name": "White Plus - Trắng sáng chuyên sâu",
+      "slug": "product-1004",
+      "price": "2,000,000",
+      "star": 2,
+      "review": 1,
+      "picture": "../assets/img/products/product-1004.jpg"
+    },
+    {
+      "id": 1005,
+      "name": "White Plus - Trắng sáng chuyên sâu",
+      "slug": "product-1005",
+      "price": "2,000,000",
+      "star": 5,
+      "review": 1,
+      "picture": "../assets/img/products/product-1005.jpg"
+    },
+    {
+      "id": 1006,
+      "name": "White Plus - Trắng sáng chuyên sâu",
+      "slug": "product-1006",
+      "price": "2,000,000",
+      "star": 5,
+      "review": 1,
+      "picture": "../assets/img/products/product-1006.jpg"
+    },
+    {
+      "id": 1007,
+      "name": "White Plus - Trắng sáng chuyên sâu",
+      "slug": "product-1007",
+      "price": "2,000,000",
+      "star": 5,
+      "review": 1,
+      "picture": "../assets/img/products/product-1007.jpg"
+    },
+    {
+      "id": 1008,
+      "name": "White Plus - Trắng sáng chuyên sâu",
+      "slug": "product-1008",
+      "price": "2,000,000",
+      "star": 5,
+      "review": 1,
+      "picture": "../assets/img/products/product-1008.jpg"
+    },
+    {
+      "id": 1009,
+      "name": "White Plus - Trắng sáng chuyên sâu",
+      "slug": "product-1009",
+      "price": "2,000,000",
+      "star": 5,
+      "review": 1,
+      "picture": "../assets/img/products/product-1009.jpg"
+    }
+  ],
+  "products-cat-id-12": [
+    {
+      "id": 1011,
+      "name": "White Plus - Trắng sáng chuyên sâu",
+      "slug": "product-1011",
+      "price": "2,000,000",
+      "star": 5,
+      "review": 1,
+      "picture": "../assets/img/products/product-1011.jpg"
+    },
+    {
+      "id": 1012,
+      "name": "White Plus - Trắng sáng chuyên sâu",
+      "slug": "product-1012",
+      "price": "2,000,000",
+      "star": 4,
+      "review": 1,
+      "picture": "../assets/img/products/product-1012.jpg"
+    },
+    {
+      "id": 1013,
+      "name": "White Plus - Trắng sáng chuyên sâu",
+      "slug": "product-1013",
+      "price": "2,000,000",
+      "star": 3,
+      "review": 1,
+      "picture": "../assets/img/products/product-1013.jpg"
+    },
+    {
+      "id": 1014,
+      "name": "White Plus - Trắng sáng chuyên sâu",
+      "slug": "product-1014",
+      "price": "2,000,000",
+      "star": 2,
+      "review": 1,
+      "picture": "../assets/img/products/product-1014.jpg"
+    },
+    {
+      "id": 1015,
+      "name": "White Plus - Trắng sáng chuyên sâu",
+      "slug": "product-1015",
+      "price": "2,000,000",
+      "star": 5,
+      "review": 1,
+      "picture": "../assets/img/products/product-1015.jpg"
+    },
+    {
+      "id": 1016,
+      "name": "White Plus - Trắng sáng chuyên sâu",
+      "slug": "product-1016",
+      "price": "2,000,000",
+      "star": 5,
+      "review": 1,
+      "picture": "../assets/img/products/product-1016.jpg"
     }
   ]
 }

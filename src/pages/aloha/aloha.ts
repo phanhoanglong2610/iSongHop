@@ -18,7 +18,7 @@ import { Categories } from '../../providers';
 export class AlohaPage {
 
   currentCategories: Category[];
-  cat_id: int = 0;
+  cat_id: number = 0;
   cat_name: string;
 
   constructor(public navCtrl: NavController, public items: Categories, public modalCtrl: ModalController, public navParams: NavParams) {
