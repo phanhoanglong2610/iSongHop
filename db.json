@@ -131,6 +131,7 @@
       "slug": "product-1002",
       "price": "1,500,000",
       "star": 4,
+      "star_half": true,
       "review": 1,
       "picture": "../assets/img/products/product-1002.jpg"
     },

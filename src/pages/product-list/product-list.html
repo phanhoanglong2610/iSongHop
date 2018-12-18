@@ -13,9 +13,20 @@
             <div>
               <img [src]="item.picture" />
             </div>
-            <h2>{{item.name}}</h2>
-            <div>{{item.price}} đ</div>
-            <div>{{item.star}}</div> ({{item.review}})
+            <div class="item-name">{{item.name}}</div>
+            <div class="item-price">{{item.price}} đ</div>
+            <div>
+              <span *ngFor="let dummy of ' '.repeat(item.star).split(''), let x = index">
+                <ion-icon name="star"></ion-icon>
+              </span>
+              <span *ngIf="item.star_half">
+                <ion-icon name="star-half"></ion-icon>
+              </span>
+              <span *ngFor="let dummy of ' '.repeat(5 - item.star - (item.star_half ? 1 : 0)).split(''), let x = index">
+                <ion-icon name="star" class="no-star"></ion-icon>
+              </span>
+              ({{item.review}})
+            </div>
             <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note>
           </button>
         </ion-col>

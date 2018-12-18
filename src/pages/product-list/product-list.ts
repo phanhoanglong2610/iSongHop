@@ -20,7 +20,7 @@ export class ProductListPage {
     this.cat_id = navParams.get("cat_id") || this.cat_id;
     this.cat_name = navParams.get("cat_name");
     this.items.query({cat_id: this.cat_id}).subscribe(data => {
-      this.currentProducts = data;
+      this.currentProducts = data.map(e => new Product(e));
     });
   }
 
