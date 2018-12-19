@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { CommonProvider } from '../../providers/common/common';
-
+import { CartProvider } from '../../providers/cart/cart';
 
 /**
  * The Header Page is a splash page that quickly describes the app,
@@ -18,8 +18,19 @@ import { CommonProvider } from '../../providers/common/common';
   templateUrl: 'header.html'
 })
 export class HeaderPage {
+  noOfCartItems: number = 0;
 
-  constructor(public navCtrl: NavController, private commonSrv: CommonProvider) { }
+  constructor(public navCtrl: NavController,
+    private commonSrv: CommonProvider,
+    private cartService: CartProvider
+  ) { 
+    this.cartService
+      .getCartItems()
+      .then(val => {
+        this.noOfCartItems = val.length;
+      });
+    console.log(this);
+  }
 
   signUp() {
     this.navCtrl.push('SignupPage');

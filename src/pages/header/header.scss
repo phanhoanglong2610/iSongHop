@@ -9,6 +9,12 @@ page-header{
 		.button-inner{
 			color: #fff;
 		}
+		ion-col.col{
+			padding: 0;
+		}
+	}
+	.logo-div{
+		flex-grow: 0.3;
 	}
 	.title{
 		.toolbar-title-md{
@@ -28,5 +34,17 @@ page-header{
 		ion-icon{
 			color: red;
 		}
+	}
+	#countCartItem{
+		position: absolute;
+    top: 0px;
+    right: -8px;
+    background: red;
+    color: #fff;
+    height: 17px;
+    width: 17px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 10pt;
 	}
 }
