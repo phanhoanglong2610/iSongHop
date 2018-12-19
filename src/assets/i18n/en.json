@@ -89,6 +89,15 @@
   "LBL_SHIPPING": "Phí vận chuyển",
   "LBL_COUPON": "Mã giảm giá",
   "LBL_COUPON_AMOUNT": "Giảm giá",
+
+  "LBL_SHIPPING_INFO": "Thông tin giao hàng",
+  "LBL_SHIPPING_NAME": "Họ và Tên",
+  "LBL_SHIPPING_PHONE": "Điện thoại",
+  "LBL_SHIPPING_EMAIL": "Email",
+  "LBL_SHIPPING_CITY": "Thành phố",
+  "LBL_SHIPPING_ADDRESS": "Địa chỉ",
+  "LBL_SHIPPING_NOTE": "Ghi chú",
+
   "LBL_PAYMENT_METHOD": "Phương thức thanh toán",
   "LBL_PAYMENT_COD": "Thanh toán khi nhận hàng",
   "LBL_PAYMENT_BANK": "Thanh toán qua ngân hàng",
@@ -102,6 +111,7 @@
   "MSG_COUPON_INPUT": "Nhập mã giảm giá tại đây",
 
   "BTN_ADD_TO_CART": "Thêm vào giỏ hàng",
+  "BTN_BACK_TO_CART": "Quay lại giỏ hàng",
   "BTN_ORDER": "Đặt hàng",
   "BTN_CHECKOUT": "Tiến hành đặt hàng",
   "BTN_COUPON_CHECK": "Áp dụng",

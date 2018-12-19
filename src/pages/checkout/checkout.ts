@@ -22,17 +22,25 @@ import { OrderProvider } from "../../providers/order/order";
   templateUrl: "checkout.html"
 })
 export class CheckoutPage {
+  // Cart Info
   cartItems: any[] = [];
+  citySelection: any[] = [];
   productAmt: number = 0;
   totalBaseAmount: number = 0;
   totalAmount: number = 0;
   shippingFee: number = 20000;
-  customerName: any;
   couponAmount: number = 0;
   couponCode: '';
 
+  // Form Info
   checkoutForm: FormGroup;
-  checkoutMethod;
+  checkoutMethod: string = 'cod';
+  customerName: any;
+  shippingPhone: string;
+  shippingEmail: string;
+  shippingCity: string;
+  shippingAddress: string;
+  shippingNote: string;
   
   constructor(
     public navCtrl: NavController,
@@ -46,8 +54,15 @@ export class CheckoutPage {
     this.loadCartItems();
     this.checkoutForm = this.formBuilder.group({
       couponCode: [this.couponCode],
-      "checkoutMethod": new FormControl({value: 'cod'})
+      checkoutMethod: [this.checkoutMethod],
+      customerName: [this.customerName],
+      shippingPhone: [this.shippingPhone],
+      shippingEmail: [this.shippingEmail],
+      shippingCity: [this.shippingCity],
+      shippingAddress: [this.shippingAddress],
+      shippingNote: [this.shippingNote]
     });
+    this.citySelection = this.commonSrv.COMMON_CITIES;
   }
 
   loadCartItems() {
@@ -111,6 +126,7 @@ export class CheckoutPage {
   }
 
   checkCoupon(){
+    console.log(this);
     var couponCode = this.checkoutForm.value.couponCode;
     if (couponCode == 'Dung'){
       this.commonSrv.presentToast('Coupon hợp lệ');
@@ -123,5 +139,9 @@ export class CheckoutPage {
       this.totalAmount = this.totalBaseAmount;
     }
     this.couponCode = couponCode;
+  }
+
+  goToCart() {
+    this.navCtrl.setRoot("CartPage");
   }
 }

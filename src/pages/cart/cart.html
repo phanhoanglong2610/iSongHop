@@ -49,7 +49,9 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col>{{'LBL_TOTAL' | translate}}</ion-col>
+      <ion-col>
+        <strong>{{'LBL_TOTAL' | translate}}</strong>
+      </ion-col>
       <ion-col class="item-price" text-right>{{totalAmount | currency:'VND':'symbol':'1.0-2'}}</ion-col>
     </ion-row>
     <ion-row>

@@ -2,6 +2,7 @@ page-checkout {
   .item-price{
     font-size: 12pt;
     color: #f57224;
+    text-align: right;
   }
   .scroll-content,
   fixed-content {
@@ -11,6 +12,9 @@ page-checkout {
       margin-bottom: 9px !important;
       ion-card-content {
         padding: 8px !important;
+        .item-inner{
+          border-bottom: 1px solid #dedede !important;
+        }
         ion-col {
           padding: 0;
           span.price {
@@ -27,15 +31,15 @@ page-checkout {
             color: #fff;
           }
           ion-item {
-            min-height: 75px !important;
+            /*min-height: 75px !important;*/
             padding: 0 !important;
             .item-inner {
               padding: 0 !important;
               ion-label {
-                min-height: 75px !important;
+                /*min-height: 75px !important;*/
                 margin: 0 !important;
                 ion-avatar {
-                  min-height: 75px !important;
+                  /*min-height: 75px !important;*/
                   img {
                     border-radius: 0 !important;
                     width: auto;

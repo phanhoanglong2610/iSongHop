@@ -8,22 +8,25 @@
   </ion-title>
 
   <form (submit)="placeOrder()" [formGroup]="checkoutForm">
+    <!-- Cart Items -->
     <ion-card>
       <ion-card-header>
-        <p>
-          <strong>{{ 'LBL_CART' | translate}}</strong>
-        </p>
+        <ion-card-title>
+          {{ 'LBL_CART' | translate}}
+        </ion-card-title>
       </ion-card-header>
       <ion-card-content *ngFor="let itm of cartItems">
         <ion-row>
           <ion-col col-7>
-            <h3 style="margin: 7px" text-left>{{itm.name}}</h3>
-
-            <div class="itm-footer">
-              <span class="price">
+            <h3 style="padding-left: 7px">{{itm.name}}</h3>
+            <ion-row>
+              <ion-col col-6 style="padding-left: 7px" text-left>
                 {{'LBL_QUANTITY' | translate}}: {{itm.count}}
-              </span>
-            </div>
+              </ion-col>
+              <ion-col col-6 class="item-price" text-right>
+                {{itm.totalPrice | currency:'VND':'symbol':'1.0-2'}}
+              </ion-col>
+            </ion-row>
           </ion-col>
           <ion-col>
             <ion-item>
@@ -31,14 +34,12 @@
                 <img style="float: right;" src="{{itm.picture}}">
               </ion-avatar>
             </ion-item>
-            <p class="item-price" text-right>
-              {{itm.totalPrice | currency:'VND':'symbol':'1.0-2'}}
-            </p>
           </ion-col>
         </ion-row>
       </ion-card-content>
     </ion-card>
 
+    <!-- Price Info -->
     <ion-card>
       <ion-card-content>
         <ion-list>
@@ -68,9 +69,10 @@
           </ion-row>
           <ion-row>
             <ion-col col-8>
-              <span>
-                <ion-input type="text" formControlName="couponCode" placeholder="{{'MSG_COUPON_INPUT' | translate}}">{{ couponCode}}</ion-input>
-              </span>
+              <ion-item>
+                <ion-label></ion-label>
+                <ion-input type="text" formControlName="couponCode" placeholder="{{ 'MSG_COUPON_INPUT' | translate }}">{{ couponCode}}</ion-input>
+              </ion-item>
             </ion-col>
             <ion-col col-4 text-right>
               <button round=true ion-button color="secondary" (click)='checkCoupon()' type="button">
@@ -90,24 +92,60 @@
               </span>
             </ion-col>
           </ion-row>
+          <ion-row>
+            <ion-col col-8>
+              <strong>
+                {{ 'LBL_TOTAL' | translate}}
+              </strong>
+            </ion-col>
+            <ion-col col-4 text-right>
+              <span class="item-price">
+                {{totalAmount | currency:'VND':'symbol':'1.0-2'}}
+              </span>
+            </ion-col>
+          </ion-row>
         </ion-list>
       </ion-card-content>
-      <div class="total-wrap">
-        <ion-row>
-          <ion-col col-8>
-            <strong>
-              {{ 'LBL_TOTAL' | translate}}
-            </strong>
-          </ion-col>
-          <ion-col col-4 text-right>
-            <span class="item-price">
-              {{totalAmount | currency:'VND':'symbol':'1.0-2'}}
-            </span>
-          </ion-col>
-        </ion-row>
-      </div>
     </ion-card>
 
+    <!-- Shipping Info -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>
+          {{ 'LBL_SHIPPING_INFO' | translate }}
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label>{{ 'LBL_SHIPPING_NAME' | translate }} (*)</ion-label>
+          <ion-input type="text" formControlName="customerName" required>{{ customerName }}</ion-input>
+          </ion-item>
+        <ion-item>
+          <ion-label>{{ 'LBL_SHIPPING_PHONE' | translate }} (*)</ion-label>
+          <ion-input type="text" formControlName="shippingPhone" required>{{ shippingPhone }}</ion-input>
+          </ion-item>
+        <ion-item>
+          <ion-label>{{ 'LBL_SHIPPING_EMAIL' | translate }}</ion-label>
+          <ion-input type="text" formControlName="shippingEmail">{{ shippingEmail }}</ion-input>
+          </ion-item>
+        <ion-item>
+          <ion-label>{{ 'LBL_SHIPPING_CITY' | translate }} (*)</ion-label>
+          <ion-select formControlName="shippingCity"required>
+            <ion-option *ngFor="let city of citySelection" [value]="city">{{ city}}</ion-option>  
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ 'LBL_SHIPPING_ADDRESS' | translate }} (*)</ion-label>
+          <ion-input type="text" formControlName="shippingAddress" required>{{ shippingAddress }}</ion-input>
+          </ion-item>
+        <ion-item>
+          <ion-label>{{ 'LBL_SHIPPING_NOTE' | translate }}</ion-label>
+          <ion-input type="text" formControlName="shippingNote">{{ shippingNote }}</ion-input>
+          </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Payment Info -->
     <ion-card>
       <ion-card-header>
         <ion-card-title>
@@ -161,6 +199,9 @@
     </ion-card>
 
     <ion-card>
+      <button block ion-button color="primary" type="button" (click)="goToCart()">
+        {{ 'BTN_BACK_TO_CART' | translate}}  
+      </button>
       <button block ion-button color="primary" type="submit">
         {{ 'BTN_ORDER' | translate}}  
       </button>
