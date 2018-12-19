@@ -14,7 +14,7 @@
               <img [src]="item.picture" />
             </div>
             <div class="item-name">{{item.name}}</div>
-            <div class="item-price">{{item.price}} đ</div>
+            <div class="item-price">{{item.price | currency:'VND':'symbol': '1.0-2'}}</div>
             <div>
               <span *ngFor="let dummy of ' '.repeat(item.star).split(''), let x = index">
                 <ion-icon name="star"></ion-icon>

@@ -79,6 +79,19 @@
   "SLIDE_INTRO_1": "WELCOME TO THAN TAM TRI SPA",
   "SLIDE_INTRO_2": "ALOHA - APP ỨNG DỤNG CHĂM SÓC SỨC KHỎE & SẮC ĐẸP CỦA BẠN",
 
-  "CATEGORY_TITLE": "DANH MỤC"
+  "CATEGORY_TITLE": "DANH MỤC",
 
+  "LBL_QUANTITY": "Số lượng",
+  "LBL_CART": "Giỏ hàng",
+  "LBL_TOTAL": "Tổng cộng",
+
+  "MSG_CART_EMPTY": "Giỏ hàng trống",
+
+  "BTN_ADD_TO_CART": "Thêm vào giỏ hàng",
+  "BTN_ORDER": "Đặt hàng",
+  "BTN_CHECKOUT": "Đặt hàng",
+  "BTN_REMOVE": "Xóa",
+  "BTN_SIGNUP": "Đăng kí",
+  "BTN_SIGNIN": "Đăng nhập",
+  "BTN_SIGNOUT": "Đăng xuất"
 }

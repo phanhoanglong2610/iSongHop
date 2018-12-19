@@ -4,7 +4,9 @@ import { IonicPage, ModalController, NavController, NavParams } from 'ionic-angu
 import { Category } from '../../models/category';
 import { Categories } from '../../providers';
 
-@IonicPage()
+@IonicPage({
+  segment: ':slug'
+})
 @Component({
   selector: 'page-category-list',
   templateUrl: 'category-list.html'
@@ -55,7 +57,8 @@ export class CategoryListPage {
   openItem(item: Category) {
     this.navCtrl.push('ProductListPage', {
       cat_id: item.id,
-      cat_name: item.name
+      cat_name: item.name,
+      slug: item.slug
     });
   }
 }

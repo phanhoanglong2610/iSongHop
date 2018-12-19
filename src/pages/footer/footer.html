@@ -1,12 +1,15 @@
-<ion-item-group color="light" no-lines inset>
+<ion-item-group no-lines inset>
     <ion-item-divider>
         {{ 'FOOTER_COMPANY_NAME' | translate }}
+        <div class="is-divider"></div>
     </ion-item-divider>
     <ion-item text-wrap>
         {{ 'FOOTER_COPYRIGHT' | translate }}
     </ion-item>
+
     <ion-item-divider>
         {{ 'FOOTER_HQ' | translate }}
+        <div class="is-divider"></div>
     </ion-item-divider>
     <ion-item text-wrap>
         <ion-icon name="map" item-start></ion-icon>{{ 'FOOTER_ADDRESS' | translate }}
@@ -17,8 +20,10 @@
     <ion-item text-wrap>
         <ion-icon name="call" item-start></ion-icon>{{ 'FOOTER_PHONE' | translate }}
     </ion-item>
+
     <ion-item-divider>
         {{ 'FOOTER_APP_TITLE' | translate }}
+        <div class="is-divider"></div>
     </ion-item-divider>
     <ion-item text-wrap>
         <button ion-button clear="true" class="storeicon" (click)="openAppStore()">

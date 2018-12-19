@@ -1,18 +1,32 @@
 page-header{
 	font-family: "Arial";
 	
+	ion-navbar.toolbar{
+		color: #fff;
+		.toolbar-background-md{
+			background-color: #9e9e9e;
+		}
+		.button-inner{
+			color: #fff;
+		}
+	}
 	.title{
-		vertical-align: middle;
+		.toolbar-title-md{
+			padding: 0;
+			font-size: 1em;
+		}
 	}
 	.logo-wrapper img{
-		height: 40px;
-		width: 40px;
+		height: 60px;
+		width: 60px;
 	}
 	.slogan-wrapper{
 		font-size: 12pt;
-		padding-left: 5%;
 	}
 	.heart-wrapper{
 		font-size: 12pt;
+		ion-icon{
+			color: red;
+		}
 	}
 }

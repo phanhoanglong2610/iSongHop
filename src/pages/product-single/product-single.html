@@ -1,0 +1,64 @@
+<ion-header>
+  <page-header></page-header>
+</ion-header>
+
+<ion-content padding>
+	<div class="card product-detail">
+		<ion-slides pager="true" slidesperview="1">
+      <ion-slide>
+        <img alt="" src="{{selectProduct?.picture}}">
+      </ion-slide>
+      <ion-slide *ngFor="let prodImg of selectProduct?.images">
+        <img alt="" src="{{prodImg}}">
+      </ion-slide>
+    </ion-slides>
+ 
+    <ion-row class="action-btn-wrap" no-padding="">
+      <ion-col text-right="">
+    		<button class="wish-list-btn card" click="" color="light" icon-only="" ion-button="" item="" togglewishlist="">
+          <ion-icon color="gray" name="md-heart"></ion-icon>
+        </button>
+ 
+        <button class="wish-list-btn card" click="" color="light" icon-only="" ion-button="" item="" togglewishlist="">
+          <ion-icon color="gray" name="share"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+
+		<div class="border-bottom" margin-top="" padding="" text-center="">
+			<div class="item-name">{{selectProduct?.name}}</div>
+			{{ selectProduct?.short_description }}
+			<div class="item-price">
+				{{ selectProduct?.price | currency:'VND':'symbol': '1.0-2'}}
+			</div>
+		</div>
+		<ion-row padding-="">
+      <ion-col></ion-col>
+    </ion-row>
+ 
+		<h4>{{'LBL_QUANTITY' | translate}}</h4>
+		<ion-col class="qty" text-right="">
+      <button (click)="decreaseProductCount()" color="light" decreaseproductcount="" ion-button="" small="">
+      	-
+      </button>
+      <button clear="" color="dark" ion-button="" small="">
+        {{productCount}}
+      </button>
+      <button (click)="incrementProductCount()" color="light" incrementproductcount="" ion-button="" small="">
+      	+
+      </button>
+    </ion-col>
+  </div>
+
+  <ion-grid>
+      <ion-row>
+         <ion-col addtocart="" class="addCart" (click)="addToCart(selectProduct)" selectproduct="">
+           <button color="secondary" full="" ion-button="">
+             {{'BTN_ADD_TO_CART' | translate}}
+           </button>          
+   
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  <page-footer></page-footer>
+</ion-content>

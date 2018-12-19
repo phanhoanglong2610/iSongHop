@@ -1,6 +1,8 @@
 {
   "name": "zaloha",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular",
   "id": "79bbec04"
 }

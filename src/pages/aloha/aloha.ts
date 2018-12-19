@@ -10,7 +10,9 @@ import { Categories } from '../../providers';
  * If you'd like to immediately put the user onto a login/signup page,
  * we recommend not using the Aloha page.
 */
-@IonicPage()
+@IonicPage({
+  segment: 'trang-chu'
+})
 @Component({
   selector: 'page-aloha',
   templateUrl: 'aloha.html'

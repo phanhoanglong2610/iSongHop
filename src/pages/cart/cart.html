@@ -1,0 +1,65 @@
+<ion-header>
+  <page-header></page-header>
+</ion-header>
+
+<ion-content padding>
+	<div *ngIf="isEmptyCart" class="empty-cart">
+    <div class="empty-results">
+      <h3 text-center>
+          <ion-icon name="cart"></ion-icon>
+      </h3>
+      <p text-center>
+        {{'MSG_CART_EMPTY' | translate}}
+      </p>
+    </div>
+  </div>
+  <div *ngIf="!isEmptyCart" class="cart-itm-wrap">
+    <ion-title class="category-title">
+      <h2>{{ 'LBL_CART' | translate}}</h2>
+    </ion-title>
+    <ion-card *ngFor="let itm of cartItems">
+      <ion-card-content>
+        <ion-row>
+          <ion-col col-7>
+            <h3 style="margin: 7px" text-left>{{itm.name}}</h3>
+
+            <div class="itm-footer">
+              <span (click)="removeItem(itm)" class="remove">
+                {{'BTN_REMOVE' | translate}}
+              </span>
+              <span class="price">
+                {{'LBL_QUANTITY' | translate}}: {{itm.count}}
+              </span>
+            </div>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-avatar>
+                <img style="float: right;" src="{{itm.picture}}">
+              </ion-avatar>
+            </ion-item>
+            <p style="color:#333" text-right>
+              {{itm.totalPrice | currency:'VND':'symbol':'1.0-2'}}
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>{{'LBL_TOTAL' | translate}}</ion-col>
+      <ion-col text-right>{{totalAmount | currency:'VND':'symbol':'1.0-2'}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="addCart" (click)="checkOut()">
+        <button round=true ion-button full color="secondary">
+          {{'BTN_CHECKOUT' | translate}}
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+	<page-footer></page-footer>
+</ion-content>

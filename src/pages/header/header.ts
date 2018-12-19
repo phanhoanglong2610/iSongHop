@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
+
 
 /**
  * The Header Page is a splash page that quickly describes the app,
@@ -17,9 +19,37 @@ import { IonicPage, NavController } from 'ionic-angular';
 })
 export class HeaderPage {
 
-  constructor(public navCtrl: NavController) { }
+  constructor(public navCtrl: NavController, private toastCtrl: ToastController) { }
 
-  signout() {
+  signUp() {
     this.navCtrl.push('SignupPage');
+  }
+
+  signIn() {
+    this.navCtrl.push('LoginPage');
+  }
+
+  showSearch(){
+    this.presentToast('Chức năng chưa hoàn thiện!');
+  }
+
+  showCart(){
+  	this.navCtrl.push('CartPage');
+  }
+
+  presentToast(msg) {
+    let toast = this.toastCtrl.create({
+      message: msg,
+      duration: 2000,
+      position: 'bottom',
+      showCloseButton: true,
+      closeButtonText: 'Đóng'
+    });
+
+    toast.onDidDismiss(() => {
+      
+    });
+
+    toast.present();
   }
 }

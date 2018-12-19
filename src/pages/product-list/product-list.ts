@@ -5,7 +5,7 @@ import { Product } from '../../models/product';
 import { Products } from '../../providers';
 
 @IonicPage({
-  segment: 'cat/:cat_id/products'
+  segment: ':slug/san-pham'
 })
 @Component({
   selector: 'page-product-list',
@@ -55,8 +55,9 @@ export class ProductListPage {
    * Navigate to the detail page for this item.
    */
   openItem(item: Product) {
-    this.navCtrl.push('ProductDetailPage', {
-      item: item
+    this.navCtrl.push('ProductSinglePage', {
+      product: item,
+      slug: item.slug
     });
   }
 }
