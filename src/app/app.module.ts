@@ -15,6 +15,8 @@ import { Products } from '../providers/products/products';
 import { Settings, User, Api } from '../providers';
 import { MyApp } from './app.component';
 import { CartProvider } from '../providers/cart/cart';
+import { OrderProvider } from '../providers/order/order';
+import { CommonProvider } from '../providers/common/common';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -65,12 +67,16 @@ export function provideSettings(storage: Storage) {
     Products,
     User,
     Camera,
+    CartProvider,
+    OrderProvider,
+    CommonProvider,
     SplashScreen,
     StatusBar,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    CartProvider
+    CartProvider,
+    CommonProvider
   ]
 })
 export class AppModule { }

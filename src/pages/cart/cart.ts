@@ -55,9 +55,9 @@ export class CartPage {
         }
 
         this.isCartItemLoaded = true;
-        loader.dismiss();
       })
       .catch(err => {});
+    loader.dismiss();
   }
 
   checkOut() {

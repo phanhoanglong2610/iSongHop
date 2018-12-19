@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
-import { ToastController } from 'ionic-angular';
+import { CommonProvider } from '../../providers/common/common';
 
 
 /**
@@ -19,7 +19,7 @@ import { ToastController } from 'ionic-angular';
 })
 export class HeaderPage {
 
-  constructor(public navCtrl: NavController, private toastCtrl: ToastController) { }
+  constructor(public navCtrl: NavController, private commonSrv: CommonProvider) { }
 
   signUp() {
     this.navCtrl.push('SignupPage');
@@ -30,26 +30,12 @@ export class HeaderPage {
   }
 
   showSearch(){
-    this.presentToast('Chức năng chưa hoàn thiện!');
+    this.commonSrv.presentToast('Chức năng chưa hoàn thiện!');
   }
 
   showCart(){
   	this.navCtrl.push('CartPage');
   }
 
-  presentToast(msg) {
-    let toast = this.toastCtrl.create({
-      message: msg,
-      duration: 2000,
-      position: 'bottom',
-      showCloseButton: true,
-      closeButtonText: 'Đóng'
-    });
-
-    toast.onDidDismiss(() => {
-      
-    });
-
-    toast.present();
-  }
+  
 }

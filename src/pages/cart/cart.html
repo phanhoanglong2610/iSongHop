@@ -38,7 +38,7 @@
                 <img style="float: right;" src="{{itm.picture}}">
               </ion-avatar>
             </ion-item>
-            <p style="color:#333" text-right>
+            <p class="item-price" text-right>
               {{itm.totalPrice | currency:'VND':'symbol':'1.0-2'}}
             </p>
           </ion-col>
@@ -50,7 +50,7 @@
   <ion-grid>
     <ion-row>
       <ion-col>{{'LBL_TOTAL' | translate}}</ion-col>
-      <ion-col text-right>{{totalAmount | currency:'VND':'symbol':'1.0-2'}}</ion-col>
+      <ion-col class="item-price" text-right>{{totalAmount | currency:'VND':'symbol':'1.0-2'}}</ion-col>
     </ion-row>
     <ion-row>
       <ion-col class="addCart" (click)="checkOut()">

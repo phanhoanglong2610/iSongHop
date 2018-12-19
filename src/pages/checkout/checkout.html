@@ -1,0 +1,171 @@
+<ion-header>
+  <page-header></page-header>
+</ion-header>
+
+<ion-content>
+  <ion-title class="category-title">
+    <h2>{{ 'LBL_ORDER' | translate}}</h2>
+  </ion-title>
+
+  <form (submit)="placeOrder()" [formGroup]="checkoutForm">
+    <ion-card>
+      <ion-card-header>
+        <p>
+          <strong>{{ 'LBL_CART' | translate}}</strong>
+        </p>
+      </ion-card-header>
+      <ion-card-content *ngFor="let itm of cartItems">
+        <ion-row>
+          <ion-col col-7>
+            <h3 style="margin: 7px" text-left>{{itm.name}}</h3>
+
+            <div class="itm-footer">
+              <span class="price">
+                {{'LBL_QUANTITY' | translate}}: {{itm.count}}
+              </span>
+            </div>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-avatar>
+                <img style="float: right;" src="{{itm.picture}}">
+              </ion-avatar>
+            </ion-item>
+            <p class="item-price" text-right>
+              {{itm.totalPrice | currency:'VND':'symbol':'1.0-2'}}
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-content>
+        <ion-list>
+          <ion-row>
+            <ion-col col-8>
+              <strong>
+                {{ 'LBL_SUBTOTAL' | translate}}
+              </strong>
+            </ion-col>
+            <ion-col col-4 text-right>
+              <span class="item-price">
+                {{productAmt | currency:'VND':'symbol':'1.0-2'}}
+              </span>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-8>
+              <strong>
+                {{ 'LBL_SHIPPING' | translate}}
+              </strong>
+            </ion-col>
+            <ion-col col-4 text-right>
+              <span class="item-price">
+                {{shippingFee | currency:'VND':'symbol':'1.0-2'}}
+              </span>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-8>
+              <span>
+                <ion-input type="text" formControlName="couponCode" placeholder="{{'MSG_COUPON_INPUT' | translate}}">{{ couponCode}}</ion-input>
+              </span>
+            </ion-col>
+            <ion-col col-4 text-right>
+              <button round=true ion-button color="secondary" (click)='checkCoupon()' type="button">
+                {{'BTN_COUPON_CHECK' | translate}}
+              </button>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf=(this.couponAmount)>
+            <ion-col col-8>
+              <strong>
+                {{ 'LBL_COUPON_AMOUNT' | translate}}
+              </strong>
+            </ion-col>
+            <ion-col col-4 text-right>
+              <span class="item-price">
+                {{couponAmount | currency:'VND':'symbol':'1.0-2'}}
+              </span>
+            </ion-col>
+          </ion-row>
+        </ion-list>
+      </ion-card-content>
+      <div class="total-wrap">
+        <ion-row>
+          <ion-col col-8>
+            <strong>
+              {{ 'LBL_TOTAL' | translate}}
+            </strong>
+          </ion-col>
+          <ion-col col-4 text-right>
+            <span class="item-price">
+              {{totalAmount | currency:'VND':'symbol':'1.0-2'}}
+            </span>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>
+          {{ 'LBL_PAYMENT_METHOD' | translate}}
+        </ion-card-title>
+      </ion-card-header>
+      <ion-list radio-group formControlName="checkoutMethod">
+        <ion-item>
+          <ion-label>
+            {{ 'LBL_PAYMENT_COD' | translate}}
+          </ion-label>
+          <ion-radio value="cod" checked="true"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            {{ 'LBL_PAYMENT_BANK' | translate}}
+          </ion-label>
+          <ion-radio value="bank"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            {{ 'LBL_PAYMENT_C1' | translate}}
+          </ion-label>
+          <ion-radio value="c1"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            {{ 'LBL_PAYMENT_C2' | translate}}
+          </ion-label>
+          <ion-radio value="c2"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            {{ 'LBL_PAYMENT_D1' | translate}}
+          </ion-label>
+          <ion-radio value="d1"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            {{ 'LBL_PAYMENT_D2' | translate}}
+          </ion-label>
+          <ion-radio value="d2"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            {{ 'LBL_PAYMENT_B' | translate}}
+          </ion-label>
+          <ion-radio value="b"></ion-radio>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+
+    <ion-card>
+      <button block ion-button color="primary" type="submit">
+        {{ 'BTN_ORDER' | translate}}  
+      </button>
+    </ion-card>
+  </form>
+
+  <page-footer></page-footer>
+</ion-content>

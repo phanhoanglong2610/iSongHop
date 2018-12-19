@@ -6,3 +6,5 @@ export { User } from './user/user';
 export { Categories } from './categories/categories';
 export { Products } from './products/products';
 import { CartProvider } from './cart/cart';
+import { OrderProvider } from './order/order';
+import { CommonProvider } from './common/common';
