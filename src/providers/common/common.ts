@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastController } from 'ionic-angular';
+import { UserProvider } from '../user/user';
+
 
 /*
   Generated class for the CommonProvider provider.
@@ -77,7 +79,10 @@ export class CommonProvider {
     "Yên Bái"
   ]
 
-  constructor(public http: HttpClient, public toastCtrl: ToastController) {
+  constructor(public http: HttpClient,
+    public toastCtrl: ToastController,
+    private userService: UserProvider
+    ) {
   }
 
   presentToast(msg) {
@@ -93,6 +98,14 @@ export class CommonProvider {
     });
 
     toast.present();
+  }
+
+  isLoggedIn(){
+    return this.userService.isLoggedIn();
+  }
+
+  logout(){
+    return this.userService.logout();
   }
 
 }

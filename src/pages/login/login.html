@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ 'LOGIN_TITLE' | translate }}</ion-title>
+    <ion-title>{{ 'LBL_SIGNIN_TITLE' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -31,7 +31,8 @@
       </ion-item>
 
       <div padding>
-        <button ion-button color="primary" block>{{ 'LOGIN_BUTTON' | translate }}</button>
+        <button ion-button color="primary" block type="submit">{{ 'BTN_SIGNIN' | translate }}</button>
+        <button ion-button color="primary" block type="button" (click)="signUp()">{{ 'BTN_SIGNUP' | translate }}</button>
       </div>
 
     </ion-list>

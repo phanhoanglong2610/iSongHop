@@ -12,11 +12,13 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { Items } from '../mocks/providers/items';
 import { Categories } from '../providers/categories/categories';
 import { Products } from '../providers/products/products';
-import { Settings, User, Api } from '../providers';
+import { Settings, Api } from '../providers';
 import { MyApp } from './app.component';
 import { CartProvider } from '../providers/cart/cart';
 import { OrderProvider } from '../providers/order/order';
 import { CommonProvider } from '../providers/common/common';
+import { UserProvider } from '../providers/user/user';
+
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -65,7 +67,7 @@ export function provideSettings(storage: Storage) {
     Items,
     Categories,
     Products,
-    User,
+    UserProvider,
     Camera,
     CartProvider,
     OrderProvider,

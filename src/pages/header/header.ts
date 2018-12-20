@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { CommonProvider } from '../../providers/common/common';
 import { CartProvider } from '../../providers/cart/cart';
+import { UserProvider } from '../../providers/user/user';
 
 /**
  * The Header Page is a splash page that quickly describes the app,
@@ -19,6 +20,7 @@ import { CartProvider } from '../../providers/cart/cart';
 })
 export class HeaderPage {
   noOfCartItems: number = 0;
+  isLoggedIn: boolean = false;
 
   constructor(public navCtrl: NavController,
     private commonSrv: CommonProvider,
@@ -29,7 +31,7 @@ export class HeaderPage {
       .then(val => {
         this.noOfCartItems = val.length;
       });
-    console.log(this);
+    this.isLoggedIn = this.checkLoggedIn();
   }
 
   signUp() {
@@ -40,12 +42,23 @@ export class HeaderPage {
     this.navCtrl.push('LoginPage');
   }
 
+  signOut() {
+    this.isLoggedIn = false;
+    this.commonSrv.logout();
+    this.navCtrl.setRoot('AlohaPage');
+    this.commonSrv.presentToast("Bạn đã đăng xuất thành công.");
+  }
+
   showSearch(){
     this.commonSrv.presentToast('Chức năng chưa hoàn thiện!');
   }
 
   showCart(){
   	this.navCtrl.push('CartPage');
+  }
+
+  checkLoggedIn(){
+    return this.commonSrv.isLoggedIn();
   }
 
   

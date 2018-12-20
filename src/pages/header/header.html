@@ -20,14 +20,14 @@
             <ion-icon name="heart">50</ion-icon>
           </span>
           <ion-buttons end>
-            <button *ngIf="true" ion-button class="button-signUp" (click)="signUp()">
+            <button *ngIf="!isLoggedIn" ion-button class="button-signUp" (click)="signUp()">
               {{ 'BTN_SIGNUP' | translate}}
             </button>
-            <button *ngIf="true" ion-button class="button-signIn" (click)="signIn()">
+            <button *ngIf="!isLoggedIn" ion-button class="button-signIn" (click)="signIn()">
               {{ 'BTN_SIGNIN' | translate}}
             </button>
-            <button *ngIf="false" ion-button class="button-signOut" (click)="signOut()">
-              <ion-icon name="log-out"></ion-icon>
+            <button *ngIf="isLoggedIn" ion-button class="button-signOut" (click)="signOut()">
+              {{ 'BTN_SIGNOUT' | translate}}
             </button>
             <button ion-button class="button-showSearch" (click)="showSearch()">
               <ion-icon name="search"></ion-icon>

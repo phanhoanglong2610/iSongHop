@@ -32,7 +32,7 @@ export class AlohaPage {
   }
 
   openItem(item) {
-    this.navCtrl.push('CategoryListPage', {cat_id: item.id});
+    this.navCtrl.push('CategoryListPage', {cat_id: item.id, slug: item.slug});
   }
 
 }

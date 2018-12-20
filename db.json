@@ -123,6 +123,9 @@
       "price": 2000000,
       "star": 5,
       "review": 1,
+      "reviews": [],
+      "like": 5,
+      "content": "Lorem ipsum dolor sit amet, id mei intellegat definitionem. An eum quidam maluisset. Mel wisi tamquam efficiantur ne, in graeco alterum per, sit etiam simul tamquam no. Cum eu putant graecis philosophia. Usu dolore disputationi te, modo principes adversarium te pri.",
       "productCount": 10,
       "picture": "../assets/img/products/product-1001.jpg",
       "images": [
@@ -130,7 +133,6 @@
         "../assets/img/products/product-1002.jpg",
         "../assets/img/products/product-1003.jpg"
       ]
-
     },
     {
       "id": 1002,
@@ -275,5 +277,27 @@
       "productCount": 10,
       "picture": "../assets/img/products/product-1016.jpg"
     }
+  ],
+  "login-success": {
+    "status": "success",
+    "user": {
+      "id": 1,
+      "name": "longph",
+      "customerName": "Long Phan"
+    }
+  },
+  "users": [
+    {
+      "name": "Test Human",
+      "email": "test@example.com",
+      "password": "123456",
+      "id": 1
+    }
+  ],
+  "orders": [
+  ],
+  "user_likes": [
+  ],
+  "user_favs": [
   ]
 }
