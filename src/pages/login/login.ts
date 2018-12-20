@@ -14,8 +14,9 @@ export class LoginPage {
   // The account fields for the login form.
   // If you're using the username field with or without email, make
   // sure to add it to the type
-  account: { email: string, password: string } = {
+  account: { email: string, customerName: string, password: string } = {
     email: 'test@example.com',
+    customerName: 'Long Phan',
     password: 'test'
   };
 
@@ -35,6 +36,7 @@ export class LoginPage {
   // Attempt to login in through our UserProvider service
   doLogin() {
     this.user.login(this.account).subscribe((resp) => {
+      // this.navCtrl.pop();
       this.navCtrl.setRoot('AlohaPage');
     }, (err) => {
       this.navCtrl.setRoot('AlohaPage');

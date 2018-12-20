@@ -91,6 +91,7 @@
   "LBL_COUPON_AMOUNT": "Giảm giá",
   "LBL_SIGNUP_TITLE": "Đăng kí thành viên",
   "LBL_SIGNIN_TITLE": "Đăng nhập thành viên",
+  "LBL_REVIEW": "Đánh giá",
 
   "LBL_SHIPPING_INFO": "Thông tin giao hàng",
   "LBL_SHIPPING_NAME": "Họ và Tên",
@@ -111,12 +112,14 @@
 
   "MSG_CART_EMPTY": "Giỏ hàng trống",
   "MSG_COUPON_INPUT": "Nhập mã giảm giá tại đây",
+  "MSG_REVIEW_INPUT": "Nhập đánh giá của bạn",
 
   "BTN_ADD_TO_CART": "Thêm vào giỏ hàng",
   "BTN_BACK_TO_CART": "Quay lại giỏ hàng",
   "BTN_ORDER": "Đặt hàng",
   "BTN_CHECKOUT": "Tiến hành đặt hàng",
   "BTN_COUPON_CHECK": "Áp dụng",
+  "BTN_REVIEW_SEND": "Gửi",
   "BTN_REMOVE": "Xóa",
   "BTN_SIGNUP": "Đăng kí",
   "BTN_SIGNIN": "Đăng nhập",

@@ -73,6 +73,16 @@
       "picture": "../assets/img/categories/cat-9.jpg"
     }
   ],
+  "categories-11": [
+    {
+      "id": 11,
+      "name": "Dịch vụ Spa 1",
+      "slug": "dich-vu-spa-1",
+      "email": "sebastian@codingthesmartway.com",
+      "parent-id": 1,
+      "picture": "../assets/img/categories/cat-11.jpg"
+    }
+  ],
   "categories-1": [
     {
       "id": 11,
@@ -123,7 +133,23 @@
       "price": 2000000,
       "star": 5,
       "review": 1,
-      "reviews": [],
+      "reviews": [
+        {
+          "reviewStar": "3",
+          "reviewContent": "sadsad",
+          "user": 1
+        },
+        {
+          "reviewStar": "3",
+          "reviewContent": "sadsad werwer",
+          "user": 1
+        },
+        {
+          "reviewStar": "4",
+          "reviewContent": "Hello",
+          "user": 1
+        }
+      ],
       "like": 5,
       "view": 10,
       "content": "Lorem ipsum dolor sit amet, id mei intellegat definitionem. An eum quidam maluisset. Mel wisi tamquam efficiantur ne, in graeco alterum per, sit etiam simul tamquam no. Cum eu putant graecis philosophia. Usu dolore disputationi te, modo principes adversarium te pri.",
@@ -295,10 +321,7 @@
       "id": 1
     }
   ],
-  "orders": [
-  ],
-  "user_likes": [
-  ],
-  "user_favs": [
-  ]
+  "orders": [],
+  "user_likes": [],
+  "user_favs": []
 }

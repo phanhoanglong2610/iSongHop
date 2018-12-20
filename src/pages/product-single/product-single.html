@@ -16,8 +16,8 @@
 
     <!-- Item review section -->
     <ion-row class="" no-padding="">
-      <ion-col text-left>
-        <div col-4>
+      <ion-col col-4 text-left>
+        <div>
           <span *ngFor="let dummy of ' '.repeat(selectProduct?.star).split(''), let x = index">
             <ion-icon name="star"></ion-icon>
           </span>
@@ -30,10 +30,8 @@
         </div>
       </ion-col>
       <ion-col text-left>
-        {{selectProduct?.review}} đánh giá
-      </ion-col>
-      <ion-col text-left>
-        {{selectProduct?.view}} lượt xem
+        <div>{{selectProduct?.review || 0}} đánh giá</div>
+        <div>{{selectProduct?.view || 0}} lượt xem</div>
       </ion-col>
       <ion-col col-4 text-right="">
     		<button class="wish-list-btn card" icon-only="" ion-button="" item="" (click)="toggleWishList()" >
@@ -54,9 +52,6 @@
 				{{ selectProduct?.price | currency:'VND':'symbol': '1.0-2'}}
 			</div>
 		</div>
-    <ion-row padding="">
-      <ion-col></ion-col>
-    </ion-row>
  
     <!-- Add to Cart section -->
     <ion-grid>
@@ -83,8 +78,47 @@
 
     <!-- Item Content section -->
     <div padding="16px">{{ selectProduct?.content }}</div>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>
+          {{ 'LBL_REVIEW' | translate}}
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-row *ngFor="let itm of selectProduct?.reviews">
+          <ion-col>
+            <div text-left>{{ itm.reviewContent }}</div>
+            <span>
+              {{ itm.reviewStar }} <ion-icon name="star" color="orange"></ion-icon>
+            </span>
+            <span style="font-style: italic;">({{ itm.user }})</span>
+          </ion-col>
+         </ion-row>
+        <form *ngIf="isLoggedIn" (submit)="sendReview()" [formGroup]="reviewForm">
+          <ion-textarea formControlName="reviewContent" placeholder="{{ 'MSG_REVIEW_INPUT' | translate }}"></ion-textarea>
+          <div>
+            <ion-row radio-group formControlName="reviewStar" required>
+              <ion-col col-2 *ngFor="let itm of starSelection">
+                <ion-item>
+                  <ion-label>
+                    {{itm}} <ion-icon name="star" color="orange"></ion-icon>
+                  </ion-label>
+                  <ion-radio value="{{itm}}"></ion-radio>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col text-center>
+                <button round=true ion-button color="secondary" type="submit">
+                    {{'BTN_REVIEW_SEND' | translate}}
+                </button>              
+              </ion-col> 
+            </ion-row>
+          </div>
+        </form>
+      </ion-card-content>
+    </ion-card>
     
   </div>
-
-  <page-footer></page-footer>
 </ion-content>

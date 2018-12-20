@@ -46,14 +46,12 @@ export class CartPage {
       .getCartItems()
       .then(val => {
         this.cartItems = val;
-
         if (this.cartItems.length > 0) {
           this.cartItems.forEach((v, indx) => {
             this.totalAmount += parseInt(v.totalPrice);
           });
           this.isEmptyCart = false;
         }
-
         this.isCartItemLoaded = true;
       })
       .catch(err => {});

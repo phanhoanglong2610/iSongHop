@@ -21,6 +21,7 @@ import { UserProvider } from '../../providers/user/user';
 export class HeaderPage {
   noOfCartItems: number = 0;
   isLoggedIn: boolean = false;
+  currentUser: any;
 
   constructor(public navCtrl: NavController,
     private commonSrv: CommonProvider,
@@ -44,6 +45,7 @@ export class HeaderPage {
 
   signOut() {
     this.isLoggedIn = false;
+    this.currentUser = null;
     this.commonSrv.logout();
     this.navCtrl.setRoot('AlohaPage');
     this.commonSrv.presentToast("Bạn đã đăng xuất thành công.");
@@ -58,8 +60,10 @@ export class HeaderPage {
   }
 
   checkLoggedIn(){
-    return this.commonSrv.isLoggedIn();
-  }
-
-  
+    var logInStatus = this.commonSrv.isLoggedIn();
+    if (logInStatus){
+      this.currentUser = this.commonSrv.getUser();
+    }
+    return logInStatus;
+  }  
 }

@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { Api } from '../../providers/api/api';
+
+
+import {
+  FormBuilder,
+  FormGroup
+} from '@angular/forms';
 
 import { CommonProvider } from '../../providers/common/common';
 import { CartProvider } from '../../providers/cart/cart';
-import { Product } from '../../models/product';
-import { Products } from '../../providers';
-import { Storage } from '@ionic/storage';
 
 
 /**
@@ -23,19 +27,36 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'product-single.html',
 })
 export class ProductSinglePage {
+  // Product Info
 	selectProduct: any;
   productCount: number = 1;
   cartItems: any[];
   inFav: boolean = false;
+  isLoggedIn: boolean = false;
+  starSelection: any[] = [];
+
+  // Form Info
+  reviewForm: FormGroup;
+  reviewContent: string;
+  reviewStar: number;
 
   constructor(public navCtrl: NavController,
   	public navParams: NavParams,
     private commonSrv: CommonProvider,
-    private cartService: CartProvider
+    private cartService: CartProvider,
+    private toastCtrl: ToastController,
+    private formBuilder: FormBuilder,
+    public api: Api
   ) {
     if (this.navParams.get("product")) {
       window.localStorage.setItem('selectedProduct', JSON.stringify(this.navParams.get("product")));
     } 
+    this.starSelection = this.commonSrv.STAR_SELECTION;
+    this.reviewForm = this.formBuilder.group({
+      reviewStar: [this.reviewStar],
+      reviewContent: [this.reviewContent]
+    });
+    this.isLoggedIn = this.commonSrv.isLoggedIn();
   }
   ionViewDidEnter(){
   	this.getSingleProduct();
@@ -78,6 +99,22 @@ export class ProductSinglePage {
     });
   }
 
+  sendReview(){
+    var formValues = this.reviewForm.value;
+    formValues.user = this.commonSrv.getUser().id;
+    this.selectProduct.reviews.push(formValues);
+    let seq = this.api.put('products-cat-id-11/' + this.selectProduct.id, this.selectProduct).share();
+
+    seq.subscribe((res: any) => {
+      if (res.status == 'success') {
+        console.log("Added review");
+      }
+    }, err => {
+      console.error('ERROR', err);
+    });
+    return seq;    
+  }
+
   presentToast(name) {
     let toast = this.toastCtrl.create({
       message: `Đã thêm vào giỏ hàng: ${name}`,
@@ -96,3 +133,4 @@ export class ProductSinglePage {
     this.commonSrv.presentToast("Đã " + action + "   mục ưa thích.");
   }
 }
+
