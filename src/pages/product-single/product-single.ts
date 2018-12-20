@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { CommonProvider } from '../../providers/common/common';
 import { CartProvider } from '../../providers/cart/cart';
 import { Product } from '../../models/product';
 import { Products } from '../../providers';
@@ -25,11 +26,12 @@ export class ProductSinglePage {
 	selectProduct: any;
   productCount: number = 1;
   cartItems: any[];
+  inFav: boolean = false;
 
   constructor(public navCtrl: NavController,
   	public navParams: NavParams,
-    private cartService: CartProvider,
-    public toastCtrl: ToastController
+    private commonSrv: CommonProvider,
+    private cartService: CartProvider
   ) {
     if (this.navParams.get("product")) {
       window.localStorage.setItem('selectedProduct', JSON.stringify(this.navParams.get("product")));
@@ -86,5 +88,11 @@ export class ProductSinglePage {
       this.navCtrl.push('CartPage');
     });
     toast.present();
+  }
+
+  toggleWishList(){
+    this.inFav = !this.inFav;
+    var action = this.inFav ? "thêm vào" : "xóa khỏi";
+    this.commonSrv.presentToast("Đã " + action + "   mục ưa thích.");
   }
 }

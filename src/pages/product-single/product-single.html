@@ -4,6 +4,7 @@
 
 <ion-content padding>
 	<div class="card product-detail">
+    <!-- Item images section -->
 		<ion-slides pager="true" slidesperview="1">
       <ion-slide>
         <img alt="" src="{{selectProduct?.picture}}">
@@ -12,46 +13,65 @@
         <img alt="" src="{{prodImg}}">
       </ion-slide>
     </ion-slides>
- 
-    <ion-row class="action-btn-wrap" no-padding="">
-      <ion-col text-right="">
-    		<button class="wish-list-btn card" click="" color="light" icon-only="" ion-button="" item="" togglewishlist="">
-          <ion-icon color="gray" name="md-heart"></ion-icon>
+
+    <!-- Item review section -->
+    <ion-row class="" no-padding="">
+      <ion-col text-left>
+        <div col-4>
+          <span *ngFor="let dummy of ' '.repeat(selectProduct?.star).split(''), let x = index">
+            <ion-icon name="star"></ion-icon>
+          </span>
+          <span *ngIf="selectProduct?.star_half">
+            <ion-icon name="star-half"></ion-icon>
+          </span>
+          <span *ngFor="let dummy of ' '.repeat(5 - selectProduct?.star - (selectProduct?.star_half ? 1 : 0)).split(''), let x = index">
+            <ion-icon name="star" class="no-star"></ion-icon>
+          </span>
+        </div>
+      </ion-col>
+      <ion-col text-left>
+        {{selectProduct?.review}} đánh giá
+      </ion-col>
+      <ion-col text-left>
+        {{selectProduct?.view}} lượt xem
+      </ion-col>
+      <ion-col col-4 text-right="">
+    		<button class="wish-list-btn card" icon-only="" ion-button="" item="" (click)="toggleWishList()" >
+          <ion-icon color="gray" *ngIf=(!inFav) class="" name="heart"></ion-icon>
+          <ion-icon color="gray"  *ngIf=(inFav) class="fav" name="heart"></ion-icon>
         </button>
  
-        <button class="wish-list-btn card" click="" color="light" icon-only="" ion-button="" item="" togglewishlist="">
+        <button class="wish-list-btn card"   icon-only="" ion-button="" item="" (click)="clickShare()" >
           <ion-icon color="gray" name="share"></ion-icon>
         </button>
       </ion-col>
     </ion-row>
 
+    <!-- Item info section -->
 		<div class="border-bottom" margin-top="" padding="" text-center="">
 			<div class="item-name">{{selectProduct?.name}}</div>
-			{{ selectProduct?.short_description }}
 			<div class="item-price">
 				{{ selectProduct?.price | currency:'VND':'symbol': '1.0-2'}}
 			</div>
 		</div>
-		<ion-row padding-="">
+    <ion-row padding="">
       <ion-col></ion-col>
     </ion-row>
  
-		<h4>{{'LBL_QUANTITY' | translate}}</h4>
-		<ion-col class="qty" text-right="">
-      <button (click)="decreaseProductCount()" color="light" decreaseproductcount="" ion-button="" small="">
-      	-
-      </button>
-      <button clear="" color="dark" ion-button="" small="">
-        {{productCount}}
-      </button>
-      <button (click)="incrementProductCount()" color="light" incrementproductcount="" ion-button="" small="">
-      	+
-      </button>
-    </ion-col>
-  </div>
-
-  <ion-grid>
+    <!-- Add to Cart section -->
+    <ion-grid>
       <ion-row>
+        <ion-col col-4 class="qty" text-right>
+          <button (click)="decreaseProductCount()" color="light" decreaseproductcount="" ion-button="" small="">
+            -
+          </button>
+          <button clear="" color="dark" ion-button="" small="">
+            {{productCount}}
+          </button>
+          <button (click)="incrementProductCount()" color="light" incrementproductcount="" ion-button="" small="">
+            +
+          </button>
+        </ion-col>
          <ion-col addtocart="" class="addCart" (click)="addToCart(selectProduct)" selectproduct="">
            <button color="secondary" full="" ion-button="">
              {{'BTN_ADD_TO_CART' | translate}}
@@ -60,5 +80,11 @@
         </ion-col>
       </ion-row>
     </ion-grid>
+
+    <!-- Item Content section -->
+    <div padding="16px">{{ selectProduct?.content }}</div>
+    
+  </div>
+
   <page-footer></page-footer>
 </ion-content>
