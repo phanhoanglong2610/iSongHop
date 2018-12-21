@@ -25,8 +25,8 @@ export class MyApp {
     { title: 'Mỹ phẩm cao cấp', component: 'CategoryListPage', icon: 'ionic', params: {cat_id: 2, cat_name: 'Mỹ phẩm cao cấp', slug: 'my-pham-cao-cap'}},
     { title: 'Tin tức', component: 'AlohaPage', icon: 'logo-twitter'},
     { title: 'Về chúng tôi', component: 'WelcomePage', icon: 'cafe'},
-    { title: 'Đăng kí', component: 'LoginPage', icon: 'contact'},
-    { title: 'Đăng nhập', component: 'SignupPage', icon: 'log-in'},
+    { title: 'Đăng kí', component: 'SignupPage', icon: 'contact'},
+    { title: 'Đăng nhập', component: 'LoginPage', icon: 'log-in'},
 
     { title: 'Sản phẩm yêu thích', component: 'ProductListPage', icon: 'bookmark', params: {cat_id: 11, slug: 'dich-vu-spa-1', cat_name: 'Dịch vụ Spa 1', filter: 'inFav=1'}},
     { title: 'Đơn hàng', component: 'OrderPage', icon: 'book'},

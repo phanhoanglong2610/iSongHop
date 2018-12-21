@@ -376,7 +376,8 @@ ion-navbar.no-border {
 
   .scroll-content {
     display: flex;
-    align-items: center;
+    margin-top: 100px;
+    /*align-items: center;*/
     justify-content: center;
     //background: rgba(50, 10, 92, .4);
 
@@ -384,12 +385,13 @@ ion-navbar.no-border {
       width: 86%;
 
       .logo {
-        width: 60px;
-        height: 60px;
+        width: 100px;
+        height: 100px;
         margin: 20px auto 0;
         border-radius: 10%;
-        background: url("../assets/img/ionic3-ico.png") no-repeat;
+        background: url("../assets/img/layout/logo.png") no-repeat;
         background-size: 100%;
+        background-color: #4c6df9;
       }
 
       .list-form {

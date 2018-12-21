@@ -1,13 +1,79 @@
-<ion-header>
+<ion-content padding class="animated fadeIn login auth-page">
+  <div class="login-content">
 
-  <ion-navbar>
-    <ion-title>{{ 'LBL_SIGNIN_TITLE' | translate }}</ion-title>
-  </ion-navbar>
+    <!-- Logo -->
+    <div padding-horizontal text-center class="animated fadeInDown">
+      <div class="logo"></div>
+      <h2 ion-text class="text-primary">
+        <strong>{{ 'ALOHA_INTRO' | translate}}</strong>
+      </h2>
+    </div>
 
-</ion-header>
+    <!-- Login form -->
+    <form class="list-form">
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="mail" item-start class="text-primary"></ion-icon>
+          Email
+        </ion-label>
+        <ion-input type="email" [(ngModel)]="account.name" name="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="lock" item-start class="text-primary"></ion-icon>
+          Password
+        </ion-label>
+        <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
+      </ion-item>
+    </form>
+
+    <div>
+      <button ion-button icon-start block color="dark" tappable (click)="doLogin()">
+        <ion-icon name="log-in"></ion-icon>
+        {{ 'BTN_SIGNIN' | translate }}
+      </button>
+
+      <p text-center ion-text color="secondary">Đăng nhập bằng:</p>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <button ion-button icon-only block class="btn-facebook">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col col-4>
+            <button ion-button icon-only block class="btn-twitter">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col col-4>
+            <button ion-button icon-only block class="btn-gplus">
+              <ion-icon name="logo-googleplus"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            <button ion-button icon-only block color="secondary" type="button" (click)="forgotPass()">
+              Quên mật khẩu
+            </button>
+          </ion-col>
+          <ion-col col-6>
+            <button ion-button icon-only block color="danger" type="button" (click)="signUp()">
+              {{ 'BTN_SIGNUP' | translate }}
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>
 
 
-<ion-content>
+<ion-content *ngIf="false">
   <form (submit)="doLogin()">
     <ion-list>
 

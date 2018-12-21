@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, ToastController, AlertController } from 'ionic-angular';
 
 import { UserProvider } from '../../providers';
 
@@ -24,7 +24,9 @@ export class LoginPage {
   constructor(public navCtrl: NavController,
     public userService: UserProvider,
     public toastCtrl: ToastController,
-    public translateService: TranslateService) {
+    public forgotCtrl: AlertController,
+    public translateService: TranslateService
+  ) {
 
     this.translateService.get('LOGIN_ERROR').subscribe((value) => {
       this.loginErrorString = value;
@@ -41,7 +43,7 @@ export class LoginPage {
       // Unable to log in
       let toast = this.toastCtrl.create({
         message: this.loginErrorString,
-        duration: 3000,
+        duration: 2000,
         position: 'bottom '
       });
       toast.present();
@@ -50,5 +52,43 @@ export class LoginPage {
 
   signUp() {
     this.navCtrl.push('SignupPage');
+  }
+
+  forgotPass() {
+    let forgot = this.forgotCtrl.create({
+      title: 'Quên mật khẩu?',
+      message: "Nhập email của bạn:",
+      inputs: [
+        {
+          name: 'email',
+          placeholder: 'Email',
+          type: 'email'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Hủy',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Gửi',
+          handler: data => {
+            console.log('Send clicked');
+            let toast = this.toastCtrl.create({
+              message: 'Vui lòng kiểm tra email của bạn.',
+              duration: 3000,
+              position: 'top',
+              cssClass: 'dark-trans',
+              closeButtonText: 'OK',
+              showCloseButton: true
+            });
+            toast.present();
+          }
+        }
+      ]
+    });
+    forgot.present();
   }
 }
