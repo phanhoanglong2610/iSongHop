@@ -2,22 +2,21 @@
   <page-header></page-header>
 </ion-header>
 
-<ion-content>
-  <ion-title class="category-title">
+<ion-content padding class="trips detail-bg">
+  <ion-toolbar padding color="light" class="title-header round">
+    <p ion-text no-margin class="text-white">
+      <strong>{{cat_name}}</strong>
+    </p>
+  </ion-toolbar>
+  <ion-title *ngIf="false" class="category-title">
     <h2>{{cat_name}}</h2>
   </ion-title>
-  <ion-grid>
-      <ion-row>
-        <ion-col *ngFor="let item of currentCategories" col-12 col-md-6 col-lg-4 col-xl-3>
-          <button ion-item (click)="openItem(item)">
-            <div>
-              <img [src]="item.picture" />
-            </div>
-            <h2>{{item.name}}</h2>
-            <p>{{item.slug}}</p>
-            <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note>
-          </button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+  
+  
+  <ion-row>
+    <ion-col col-12 col-md-6 col-lg-6 col-xl-4 class="trip" *ngFor="let itm of currentCategories" tappable (click)="openItem(itm)" padding-10>
+        <div class="card background" [ngStyle]="{'background-image': 'url(' + itm.picture + ')'}">
+        </div>
+    </ion-col>
+  </ion-row>
 </ion-content>

@@ -1,7 +1,7 @@
 <ion-header>
   <page-header></page-header>
 </ion-header>  
-<ion-content fullscreen="true">
+<ion-content fullscreen="true" class="trips detail-bg">
   <div>
     <div class="title-intro">
       {{ 'ALOHA_INTRO' | translate }}
@@ -10,20 +10,10 @@
   <div *ngIf="false">
     <page-slide></page-slide>  
   </div>
-  <div>
-    <ion-grid>
-      <ion-row>
-        <ion-col *ngFor="let item of currentCategories" col-12 col-md-6 col-lg-4 col-xl-3>
-          <button ion-item (click)="openItem(item)">
-            <div>
-              <img [src]="item.picture" />
-            </div>
-            <h2>{{item.name}}</h2>
-            <p>{{item.slug}}</p>
-            <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note>
-          </button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </div>
+  <ion-row>
+    <ion-col col-12 col-md-6 col-lg-6 col-xl-4 class="trip" *ngFor="let itm of currentCategories" tappable (click)="openItem(itm)" padding-10>
+      <div class="card background" [ngStyle]="{'background-image': 'url(' + itm.picture + ')'}">
+      </div>
+    </ion-col>
+  </ion-row>
 </ion-content>

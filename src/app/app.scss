@@ -16,9 +16,12 @@
 // automatically applied to the <body> element in the app.
 
 ion-app.md [padding] .scroll-content{
-	padding: 0;
+	padding: 10px;
 }
 
+ion-app.md [padding-10]{
+  padding: 10px;
+}
 .category-title{
 	text-align: center;
 	h2{
@@ -30,6 +33,33 @@ ion-app.md [padding] .scroll-content{
   	font-size: 20px;
   	margin-top: 20px !important;
 	}
+}
+
+.trips {
+  .card{
+    border-radius: 1rem;
+  }
+  .trip {
+    overflow: hidden;
+    .background {
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      min-height: 160px;
+      .background-filter {
+        height: 16rem;
+        /*background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25));*/
+        background: transparent;
+        .align-bottom {
+          width: 100%;
+          h6 {
+            margin-top: 0;
+            font-size: 10pt;
+          }
+        }
+      }
+    }
+  }
 }
 
 #menu-material {
@@ -85,6 +115,12 @@ ion-app.md [padding] .scroll-content{
 
 .detail-bg {
   background-color: #f1f1f5;
+  .title-header{
+    text-align: center;
+    font-size: 16pt;
+    border-radius: 1rem;
+    margin-bottom: 15px;
+  }
 }
 
 .light-bg {
