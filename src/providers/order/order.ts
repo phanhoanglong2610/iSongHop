@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 
 import { Order } from '../../models/order';
 import { Api } from '../api/api';
+import { CommonProvider } from '../../providers/common/common';
+
+export const ORDER_NEW = "New";
 
 @Injectable()
 export class OrderProvider {
@@ -13,27 +16,29 @@ export class OrderProvider {
   }
 
   add(item: Order) {
-    var promise = new Promise((resolve, reject) => {
-    	let orderRef = this.makeid(10);
-    	let orderObject = {
-     		orderRef: orderRef,
-  		  customerName:item.customerName || '',
-  		  shippingFee:item.shippingFee,
-  		  productAmt:item.productAmt,
-  		  totalAmount: item.totalAmount,
-        cartItems: item.cartItems
-  		};
-  		console.log(orderObject);
-  		console.log("Call API to place order");
-      resolve(true);
+    let orderObject = item;
+    orderObject.orderRef = this.makeOrderRef(10);
+    orderObject.orderStatus = ORDER_NEW;
+
+    let seq = this.api.post('orders', orderObject).share();
+
+    seq.subscribe((res: any) => {
+      // If the API returned a successful response, mark the user as logged in
+      if (res.status == 'success') {
+        
+      }
+    }, err => {
+      console.error('ERROR', err);
     });
-    return promise;
+
+    return seq;
+
   }
 
   delete(item: Order) {
   }
 
-  makeid(length:number) {
+  makeOrderRef(length:number) {
     var text = "";
     var possible =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";

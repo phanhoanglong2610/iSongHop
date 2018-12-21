@@ -3,8 +3,7 @@ import { IonicPage, NavController, NavParams, ToastController, LoadingController
 
 import {
   FormBuilder,
-  FormGroup,
-  FormControl
+  FormGroup
 } from '@angular/forms';
 
 import { CommonProvider } from '../../providers/common/common';
@@ -91,29 +90,29 @@ export class CheckoutPage {
 
   ionViewCanEnter() {}
 
-  placeOrder() {
+  placeOrder2() {
     console.log(this);
   }
 
-  placeOrder2() {
+  placeOrder() {
     let loader = this.loadingCtrl.create({
       content: "Đang đặt hàng..."
     });
     loader.present();
-    var user = true;
+    var user = this.commonSrv.getUser();
     if (user) {
-      let orderObj = {
-        customerId: 1,
-        customerName: this.customerName,
-        shippingFee: this.shippingFee,
-        productAmt: this.productAmt,
-        totalAmount: this.totalAmount,
-        cartItems: this.cartItems
-      };
-
-      this.orderService.add(orderObj).then(() => {
+      let orderObj = this.checkoutForm.value;
+      orderObj.accountName = user.customerName;
+      orderObj.shippingFee = this.shippingFee;
+      orderObj.productAmt = this.productAmt;
+      orderObj.totalBaseAmount = this.totalBaseAmount;
+      orderObj.totalAmount = this.totalAmount;
+      orderObj.cartItems = this.cartItems;
+      
+      this.orderService.add(orderObj).subscribe(() => {
+        // this.navCtrl.setRoot('AlohaPage');
         loader.dismiss();
-        this.navCtrl.setRoot('HomePage');
+        this.commonSrv.presentToast('Đặt hàng thành công.');
       });
     } else {
       loader.dismiss();

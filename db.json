@@ -321,7 +321,87 @@
       "id": 1
     }
   ],
-  "orders": [],
+  "orders": [
+    {
+      "couponCode": "Dung",
+      "checkoutMethod": "c1",
+      "customerName": "sss",
+      "shippingPhone": "sss",
+      "shippingEmail": "ss",
+      "shippingCity": "Thành phố Hồ Chí Minh",
+      "shippingAddress": "sss",
+      "shippingNote": "sss",
+      "shippingFee": 20000,
+      "productAmt": 5500000,
+      "totalAmount": 5520000,
+      "orderRef": "HxZpCS22vN",
+      "id": 1
+    },
+    {
+      "couponCode": null,
+      "checkoutMethod": "cod",
+      "customerName": null,
+      "shippingPhone": null,
+      "shippingEmail": null,
+      "shippingCity": null,
+      "shippingAddress": null,
+      "shippingNote": null,
+      "shippingFee": 20000,
+      "productAmt": 5500000,
+      "totalAmount": 5520000,
+      "orderRef": "tvI1IpWcr4",
+      "id": 2
+    },
+    {
+      "couponCode": null,
+      "checkoutMethod": "cod",
+      "customerName": null,
+      "shippingPhone": null,
+      "shippingEmail": null,
+      "shippingCity": null,
+      "shippingAddress": null,
+      "shippingNote": null,
+      "shippingFee": 20000,
+      "productAmt": 5500000,
+      "totalBaseAmount": 5520000,
+      "totalAmount": 5520000,
+      "orderRef": "LrPIU2jhsT",
+      "id": 3
+    },
+    {
+      "couponCode": null,
+      "checkoutMethod": "bank",
+      "customerName": "sss",
+      "shippingPhone": "sss",
+      "shippingEmail": "sss",
+      "shippingCity": "Thành phố Hồ Chí Minh",
+      "shippingAddress": "sss",
+      "shippingNote": null,
+      "accountName": "Long Phan",
+      "shippingFee": 20000,
+      "productAmt": 5500000,
+      "totalBaseAmount": 5520000,
+      "totalAmount": 5520000,
+      "cartItems": [
+        {
+          "product_id": 1001,
+          "name": "White Plus - Trắng sáng chuyên sâu",
+          "picture": "../assets/img/products/product-1001.jpg",
+          "count": 2,
+          "totalPrice": 4000000
+        },
+        {
+          "product_id": 1002,
+          "name": "Chăm sóc chuyên sâu sau Peeling",
+          "picture": "../assets/img/products/product-1002.jpg",
+          "count": 1,
+          "totalPrice": 1500000
+        }
+      ],
+      "orderRef": "K5rWQcMY3n",
+      "id": 4
+    }
+  ],
   "user_likes": [],
   "user_favs": []
 }
