@@ -2,10 +2,10 @@
   <page-header></page-header>
 </ion-header>
 
-<ion-content padding>
-	<div class="card product-detail">
-    <!-- Item images section -->
-		<ion-slides pager="true" slidesperview="1">
+<ion-content padding class="checkout-trip common-bg">
+  <!--trip information-->
+  <div class="trip-info card round">
+    <ion-slides pager="true" slidesperview="1">
       <ion-slide>
         <img alt="" src="{{selectProduct?.picture}}">
       </ion-slide>
@@ -13,112 +13,103 @@
         <img alt="" src="{{prodImg}}">
       </ion-slide>
     </ion-slides>
-
-    <!-- Item review section -->
-    <ion-row class="" no-padding="">
-      <ion-col col-4 text-left>
-        <div>
-          <span *ngFor="let dummy of ' '.repeat(selectProduct?.star).split(''), let x = index">
-            <ion-icon name="star"></ion-icon>
-          </span>
-          <span *ngIf="selectProduct?.star_half">
-            <ion-icon name="star-half"></ion-icon>
-          </span>
-          <span *ngFor="let dummy of ' '.repeat(5 - selectProduct?.star - (selectProduct?.star_half ? 1 : 0)).split(''), let x = index">
-            <ion-icon name="star" class="no-star"></ion-icon>
-          </span>
-        </div>
-      </ion-col>
-      <ion-col text-left>
-        <div>{{selectProduct?.review || 0}} đánh giá</div>
-        <div>{{selectProduct?.view || 0}} lượt xem</div>
-      </ion-col>
-      <ion-col col-4 text-right="">
-    		<button class="wish-list-btn card" icon-only="" ion-button="" item="" (click)="toggleWishList()" >
-          <ion-icon color="gray" *ngIf=(!inFav) class="" name="heart"></ion-icon>
-          <ion-icon color="gray"  *ngIf=(inFav) class="fav" name="heart"></ion-icon>
-        </button>
- 
-        <button class="wish-list-btn card"   icon-only="" ion-button="" item="" (click)="clickShare()" >
-          <ion-icon color="gray" name="share"></ion-icon>
-        </button>
-      </ion-col>
-    </ion-row>
-
-    <!-- Item info section -->
-		<div class="border-bottom" margin-top="" padding="" text-center="">
-			<div class="item-name">{{selectProduct?.name}}</div>
-			<div class="item-price">
-				{{ selectProduct?.price | currency:'VND':'symbol': '1.0-2'}}
-			</div>
-		</div>
- 
-    <!-- Add to Cart section -->
-    <ion-grid>
+    <ion-grid padding>
       <ion-row>
-        <ion-col col-4 class="qty" text-right>
-          <button (click)="decreaseProductCount()" color="light" decreaseproductcount="" ion-button="" small="">
-            -
-          </button>
-          <button clear="" color="dark" ion-button="" small="">
-            {{productCount}}
-          </button>
-          <button (click)="incrementProductCount()" color="light" incrementproductcount="" ion-button="" small="">
-            +
-          </button>
+        <ion-col width-66>
+          <h5 ion-text color="primary">{{ selectProduct?.name }}</h5>
+          <div>
+            <button class="wish-list-btn card" icon-only="" ion-button="" item="" (click)="toggleWishList()" >
+              <ion-icon color="primary" *ngIf=(!inFav) class="" name="heart"></ion-icon>
+              <ion-icon color="primary" *ngIf=(inFav) class="fav" name="heart"></ion-icon>
+            </button>
+            <button class="wish-list-btn card"   icon-only="" ion-button="" item="" (click)="clickShare()" >
+              <ion-icon color="primary" name="share"></ion-icon>
+            </button>
+            <span *ngIf="false" ion-text>{{selectProduct?.view || 0}} lượt xem</span>
+          </div>
         </ion-col>
-         <ion-col addtocart="" class="addCart" (click)="addToCart(selectProduct)" selectproduct="">
-           <button color="secondary" full="" ion-button="">
-             {{'BTN_ADD_TO_CART' | translate}}
-           </button>          
-   
+        <ion-col col-4 text-center>
+          <div>
+            <span *ngFor="let dummy of ' '.repeat(selectProduct?.star).split(''), let x = index">
+              <ion-icon name="star"></ion-icon>
+            </span>
+            <span *ngIf="selectProduct?.star_half">
+              <ion-icon name="star-half"></ion-icon>
+            </span>
+            <span *ngFor="let dummy of ' '.repeat(5 - selectProduct?.star - (selectProduct?.star_half ? 1 : 0)).split(''), let x = index">
+              <ion-icon name="star" class="no-star"></ion-icon>
+            </span>
+          </div>
+          <h5 ion-text color="primary" class="bold item-price" no-margin>{{ selectProduct?.price | currency:'VND':'symbol': '1.0-2'}}</h5>
+          <div>
+            <span class="bold">{{selectProduct?.review || 0}} đánh giá</span>
+          </div>
         </ion-col>
       </ion-row>
     </ion-grid>
-
-    <!-- Item Content section -->
-    <div padding="16px">{{ selectProduct?.content }}</div>
-
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>
-          {{ 'LBL_REVIEW' | translate}}
-        </ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-row *ngFor="let itm of selectProduct?.reviews">
-          <ion-col>
-            <div text-left>{{ itm.reviewContent }}</div>
-            <span>
-              {{ itm.reviewStar }} <ion-icon name="star" color="orange"></ion-icon>
-            </span>
-            <span style="font-style: italic;">({{ itm.user }})</span>
-          </ion-col>
-         </ion-row>
-        <form *ngIf="isLoggedIn" (submit)="sendReview()" [formGroup]="reviewForm">
-          <ion-textarea formControlName="reviewContent" placeholder="{{ 'MSG_REVIEW_INPUT' | translate }}"></ion-textarea>
-          <div>
-            <ion-row radio-group formControlName="reviewStar" required>
-              <ion-col col-2 *ngFor="let itm of starSelection">
-                <ion-item>
-                  <ion-label>
-                    {{itm}} <ion-icon name="star" color="orange"></ion-icon>
-                  </ion-label>
-                  <ion-radio value="{{itm}}"></ion-radio>
-                </ion-item>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col text-center>
-                <button round=true ion-button color="secondary" type="submit">
-                    {{'BTN_REVIEW_SEND' | translate}}
-                </button>              
-              </ion-col> 
-            </ion-row>
-          </div>
-        </form>
-      </ion-card-content>
-    </ion-card>
-    
   </div>
+
+  <div class="card round" margin-top margin-bottom>
+    <ion-row>
+      <ion-col col-4 class="qty" text-right>
+        <button (click)="decreaseProductCount()" color="light" decreaseproductcount="" ion-button="" small="">
+          -
+        </button>
+        <button clear="" color="dark" ion-button="" small="">
+          {{productCount}}
+        </button>
+        <button (click)="incrementProductCount()" color="light" incrementproductcount="" ion-button="" small="">
+          +
+        </button>
+      </ion-col>
+      <ion-col addtocart="" class="addCart" color="primary" (click)="addToCart(selectProduct)" selectproduct="">
+       <button color="primary" class="round" full="" ion-button="">
+         {{'BTN_ADD_TO_CART' | translate}}
+       </button>          
+
+     </ion-col>
+   </ion-row>
+  </div>
+
+  <h5>{{ 'LBL_CONTENT' | translate}}</h5>
+  <div class="card round" margin-top margin-bottom padding-10>
+    <p>{{ selectProduct?.content }}</p>
+  </div>
+
+  <!-- Review section -->
+  <h5>{{ 'LBL_REVIEW' | translate}}</h5>
+  <div class="card round" margin-top padding-10>
+    <ion-row *ngFor="let itm of selectProduct?.reviews">
+      <ion-col>
+        <div text-left>{{ itm.reviewContent }}</div>
+        <span>
+          {{ itm.reviewStar }} <ion-icon name="star" color="orange"></ion-icon>
+        </span>
+        <span style="font-style: italic;">User ID: ({{ itm.user }})</span>
+      </ion-col>
+    </ion-row>
+    <form *ngIf="isLoggedIn" (submit)="sendReview()" [formGroup]="reviewForm">
+      <ion-textarea formControlName="reviewContent" placeholder="{{ 'MSG_REVIEW_INPUT' | translate }}"></ion-textarea>
+      <div>
+        <ion-row radio-group formControlName="reviewStar" required>
+          <ion-col col-2 *ngFor="let itm of starSelection">
+            <ion-item>
+              <ion-label text-right>
+                {{itm}} <ion-icon name="star" color="orange"></ion-icon>
+              </ion-label>
+              <ion-radio value="{{itm}}"></ion-radio>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col text-center>
+            <button round=true ion-button color="secondary" type="submit">
+              {{'BTN_REVIEW_SEND' | translate}}
+            </button>              
+          </ion-col> 
+        </ion-row>
+      </div>
+    </form>
+  </div>
+
 </ion-content>

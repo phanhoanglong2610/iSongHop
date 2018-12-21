@@ -2,7 +2,7 @@ page-product-single {
 	div.item-name{
 		font-size: 11pt;
 	}
-	div.item-price{
+	.item-price{
 		font-size: 12pt;
 		color: #f57224;
 	}
@@ -23,6 +23,9 @@ page-product-single {
 		padding-left: 0px;
 		.radio-md{
 			margin: 0px;
+		}
+		.input-wrapper{
+			font-size: 10pt;
 		}
 	}
 }

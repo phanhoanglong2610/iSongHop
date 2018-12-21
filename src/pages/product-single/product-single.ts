@@ -132,5 +132,10 @@ export class ProductSinglePage {
     var action = this.inFav ? "thêm vào" : "xóa khỏi";
     this.commonSrv.presentToast("Đã " + action + "   mục ưa thích.");
   }
+
+  clickShare(){
+    this.commonSrv.presentToast('Chức năng chưa hoàn thiện!');
+  }
+
 }
 

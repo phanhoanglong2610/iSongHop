@@ -14,18 +14,16 @@
   </ion-title>
   
   <ion-row>
-    <ion-col col-12 col-md-6 col-lg-4 col-xl-3 class="trip card" *ngFor="let itm of currentProducts" tappable (click)="openItem(itm)" margin-bottom>
-      <div class="background border-bottom" [ngStyle]="{'background-image': 'url(' + itm.picture + ')'}">
-        <div class="background-filter rlt">
-          <div class="align-bottom" padding-left padding-right>
-            <h6 class="pull-left text-white" ion-text>{{ itm.name }}</h6>
-            <div class="clear"></div>
-          </div>
-        </div>
-      </div>
-      <div class="padding-sm primary-bg">
-        <ion-row>
-          <ion-col text-left>
+    <ion-col col-12 col-md-6 col-lg-4 col-xl-3 class="trip" *ngFor="let itm of currentProducts" tappable (click)="openItem(itm)" padding-10>
+      <!-- <div class="background border-bottom" [ngStyle]="{'background-image': 'url(' + itm.picture + ')'}"> -->
+      <!-- </div> -->
+      <div class="card">
+        <img src="{{itm.picture}}" class="background">
+        <ion-row class="primary-bg">
+          <ion-col text-left col-8 class="text-white">
+            <h6 class="" ion-text>{{ itm.name }}</h6>
+          </ion-col>
+          <ion-col text-right>
             <div>
               <span *ngFor="let dummy of ' '.repeat(itm.star).split(''), let x = index">
                 <ion-icon name="star"></ion-icon>
@@ -36,10 +34,8 @@
               <span *ngFor="let dummy of ' '.repeat(5 - itm.star - (itm.star_half ? 1 : 0)).split(''), let x = index">
                 <ion-icon name="star" class="no-star"></ion-icon>
               </span>
-              <span color="light">({{itm.review}})</span>
+              <span class="text-white">({{itm.review}})</span>
             </div>
-          </ion-col>
-          <ion-col text-right>
             <span class="pull-right text-white" ion-text>
               <h6>{{itm.price | currency:'VND':'symbol': '1.0-2'}}</h6>
             </span>
