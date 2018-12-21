@@ -115,8 +115,24 @@ export class CommonProvider {
     return this.userService._user;
   }
 
-  isAdmin(){
-    return this.userService.isAdmin();
+  getRole(){
+    return this.userService.getRole();
+  }
+
+  isManager(){
+    return this.userService.isManager();
+  }
+
+  isStaff(){
+    return this.userService.isStaff();
+  }
+
+  isShipper(){
+    return this.userService.isShipper();
+  }
+
+  isUser(){
+    return this.userService.isUser();
   }
 
 }

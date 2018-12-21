@@ -315,18 +315,32 @@
   },
   "users": [
     {
-      "name": "Admin Account",
-      "email": "admin@alohaspa.vn",
+      "name": "Manager 1",
+      "email": "mgr1@alohaspa.vn",
       "password": "123456",
       "role": 1,
       "id": 1
     },
     {
-      "name": "Customer 1",
-      "email": "cust1@alohaspa.vn",
+      "name": "Staff 1",
+      "email": "staff1@alohaspa.vn",
       "password": "123456",
       "role": 2,
       "id": 2
+    },
+    {
+      "name": "Shipper 1",
+      "email": "ship1@alohaspa.vn",
+      "password": "123456",
+      "role": 3,
+      "id": 3
+    },
+    {
+      "name": "Customer 1",
+      "email": "cust1@alohaspa.vn",
+      "password": "123456",
+      "role": 4,
+      "id": 4
     }
   ],
   "orders": [

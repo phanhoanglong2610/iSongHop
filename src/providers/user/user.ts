@@ -55,7 +55,6 @@ export class UserProvider {
 
     seq.subscribe((res: any) => {
       // If the API returned a successful response, mark the user as logged in
-      console.log(res);
       if (res.status == 'success') {
         this._loggedIn(res);
       }
@@ -84,7 +83,25 @@ export class UserProvider {
     return !!this._user
   }
 
-  isAdmin(){
+  isManager(){
     return this._user.role == 1;
+  }
+  isStaff(){
+    return this._user.role == 2;
+  }
+  isShipper(){
+    return this._user.role == 3;
+  }
+  isUser(){
+    return this._user.role == 4;
+  }
+
+  getRole(){
+    if (!this._user) return "Guest";
+    if (this.isManager()) return 'Manager';
+    if (this.isStaff()) return 'Staff';
+    if (this.isShipper()) return 'Shipper';
+    if (this.isUser()) return 'User';
+    return "Guest";
   }
 }
