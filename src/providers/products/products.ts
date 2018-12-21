@@ -13,6 +13,11 @@ export class Products {
   	return this.api.get('products-cat-id-' + cat_id, params);
   }
 
+  filter(params?: any){
+  	var filter = params["filter"];
+  	return this.api.get('products-cat-id-12?' + filter, params);	
+  }
+
   add(product: Product) {
   }
 

@@ -19,9 +19,17 @@ export class ProductListPage {
   constructor(public navCtrl: NavController, public items: Products, public modalCtrl: ModalController, public navParams: NavParams) {
     this.cat_id = navParams.get("cat_id") || this.cat_id;
     this.cat_name = navParams.get("cat_name");
-    this.items.query({cat_id: this.cat_id}).subscribe(data => {
-      this.currentProducts = data;
-    });
+    var filter_params = navParams.get("filter");
+    if (filter_params){
+      this.items.filter({filter: filter_params}).subscribe(data => {
+        this.currentProducts = data;
+      });  
+    }
+    else{
+      this.items.query({cat_id: this.cat_id}).subscribe(data => {
+        this.currentProducts = data;
+      });  
+    }
   }
 
   /**

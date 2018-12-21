@@ -20,38 +20,44 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   pages_guest: any[] = [
-    { title: 'Home', component: 'AlohaPage', params: {cat_id: 0, cat_name: ""}},
-    { title: 'Dịch vụ Spa', component: 'CategoryListPage', params: {cat_id: 1, cat_name: 'Dịch vụ Spa', slug: 'dich-vu-spa'}},
-    { title: 'Mỹ phẩm cao cấp', component: 'CategoryListPage', params: {cat_id: 2, cat_name: 'Mỹ phẩm cao cấp', slug: 'my-pham-cao-cap'}},
-    { title: 'Tin tức', component: 'AlohaPage'},
-    { title: 'Về chúng tôi', component: 'WelcomePage' },
-    { title: 'Đăng kí', component: 'LoginPage' },
-    { title: 'Đăng nhập', component: 'SignupPage' },
-    { title: 'Tutorial', component: 'TutorialPage' },
-    { title: 'Tabs', component: 'TabsPage' },
-    { title: 'Cards', component: 'CardsPage' },
-    { title: 'Content', component: 'ContentPage' },
-    { title: 'Master Detail', component: 'ListMasterPage' },
-    { title: 'Menu', component: 'MenuPage' },
-    { title: 'Settings', component: 'SettingsPage' },
-    { title: 'Search', component: 'SearchPage' },
+    { title: 'Danh mục', component: 'AlohaPage', icon: 'home', params: {cat_id: 0, cat_name: ""}},
+    { title: 'Dịch vụ Spa', component: 'CategoryListPage', icon: 'ionic', params: {cat_id: 1, cat_name: 'Dịch vụ Spa', slug: 'dich-vu-spa'}},
+    { title: 'Mỹ phẩm cao cấp', component: 'CategoryListPage', icon: 'ionic', params: {cat_id: 2, cat_name: 'Mỹ phẩm cao cấp', slug: 'my-pham-cao-cap'}},
+    { title: 'Tin tức', component: 'AlohaPage', icon: 'logo-twitter'},
+    { title: 'Về chúng tôi', component: 'WelcomePage', icon: 'cafe'},
+    { title: 'Đăng kí', component: 'LoginPage', icon: 'contact'},
+    { title: 'Đăng nhập', component: 'SignupPage', icon: 'log-in'},
+
+    { title: 'Sản phẩm yêu thích', component: 'ProductListPage', icon: 'bookmark', params: {cat_id: 11, slug: 'dich-vu-spa-1', cat_name: 'Dịch vụ Spa 1', filter: 'inFav=1'}},
+    { title: 'Đơn hàng', component: 'OrderPage', icon: 'book'},
+
+    { title: 'Tutorial', component: 'TutorialPage', icon: 'home'},
+    { title: 'Tabs', component: 'TabsPage', icon: 'home'},
+    { title: 'Cards', component: 'CardsPage', icon: 'home'},
+    { title: 'Content', component: 'ContentPage', icon: 'home'},
+    { title: 'Master Detail', component: 'ListMasterPage', icon: 'home'},
+    { title: 'Menu', component: 'MenuPage', icon: 'home'},
+    { title: 'Settings', component: 'SettingsPage', icon: 'settings'},
+    { title: 'Search', component: 'SearchPage', icon: 'search'},
   ]
 
+  pages_admin: any[] = [];
   pages_manager: any[] = [];
   pages_staff: any[] = [];
   pages_shipper: any[] = [];
 
   pages_user: any[] = [
-    { title: 'Home', component: 'AlohaPage', params: {cat_id: 0, cat_name: ""}},
-    { title: 'Dịch vụ Spa', component: 'CategoryListPage', params: {cat_id: 1, cat_name: 'Dịch vụ Spa', slug: 'dich-vu-spa'}},
-    { title: 'Mỹ phẩm cao cấp', component: 'CategoryListPage', params: {cat_id: 2, cat_name: 'Mỹ phẩm cao cấp', slug: 'my-pham-cao-cap'}},
-    { title: 'Tin tức', component: 'AlohaPage'},
-    { title: 'Về chúng tôi', component: 'WelcomePage' },
-    { title: 'Sản phẩm yêu thích', component: 'AlohaPage'},
-    { title: 'Đơn hàng', component: 'AlohaPage'},
-    { title: 'Điểm thành viên', component: 'AlohaPage'},
-    { title: 'Giới thiệu khách', component: 'AlohaPage'},
-    { title: 'Đăng xuất', component: 'AlohaPage'},
+    { title: 'Danh mục', component: 'AlohaPage', icon: 'home', params: {cat_id: 0, cat_name: ""}},
+    { title: 'Dịch vụ Spa', component: 'CategoryListPage', icon: 'ionic', params: {cat_id: 1, cat_name: 'Dịch vụ Spa', slug: 'dich-vu-spa'}},
+    { title: 'Mỹ phẩm cao cấp', component: 'CategoryListPage', icon: 'ionic', params: {cat_id: 2, cat_name: 'Mỹ phẩm cao cấp', slug: 'my-pham-cao-cap'}},
+    { title: 'Tin tức', component: 'AlohaPage', icon: 'logo-twitter'},
+    { title: 'Về chúng tôi', component: 'WelcomePage' , icon: 'cafe'},
+    { title: 'Sản phẩm yêu thích', component: 'ProductListPage', icon: 'bookmark', params: {cat_id: 11, slug: 'dich-vu-spa-1', cat_name: 'Dịch vụ Spa 1', filter: 'inFav=1'}},
+    { title: 'Giỏ hàng', component: 'CartPage', icon: 'cart'},
+    { title: 'Đơn hàng', component: 'AlohaPage', icon: 'book'},
+    { title: 'Điểm thành viên', component: 'AlohaPage', icon: 'snow'},
+    { title: 'Giới thiệu khách', component: 'AlohaPage', icon: 'contacts'},
+    { title: 'Đăng xuất', component: 'AlohaPage', icon: 'log-out'},
   ]
 
   constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen, private commonSrv: CommonProvider) {
@@ -86,10 +92,6 @@ export class MyApp {
           break;
       }
     });
-  }
-
-  ionViewCanEnter(){
-    
   }
 
   initTranslate() {
