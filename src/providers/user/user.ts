@@ -35,14 +35,10 @@ export class UserProvider {
    */
   login(accountInfo: any) {
     // let seq = this.api.post('login', accountInfo).share();
-    let seq = this.api.get('login-success');
+    let seq = this.api.get('users?email=' + accountInfo.email);
 
     seq.subscribe((res: any) => {
-      // If the API returned a successful response, mark the user as logged in
-      if (res.status == 'success') {
-        this._loggedIn(res);
-      } else {
-      }
+      this._loggedIn(res[0]);
     }, err => {
       console.error('ERROR', err);
     });
@@ -59,6 +55,7 @@ export class UserProvider {
 
     seq.subscribe((res: any) => {
       // If the API returned a successful response, mark the user as logged in
+      console.log(res);
       if (res.status == 'success') {
         this._loggedIn(res);
       }
@@ -79,11 +76,15 @@ export class UserProvider {
   /**
    * Process a login/signup response to store user data
    */
-  _loggedIn(resp) {
-    this._user = resp.user;
+  _loggedIn(res) {
+    this._user = res;
   }
 
   isLoggedIn(){
     return !!this._user
+  }
+
+  isAdmin(){
+    return this._user.role == 1;
   }
 }

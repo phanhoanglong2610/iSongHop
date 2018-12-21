@@ -27,7 +27,7 @@
               {{ 'BTN_SIGNIN' | translate}}
             </button>
             <button *ngIf="isLoggedIn" ion-button class="button-signOut" (click)="signOut()">
-              {{ currentUser?.customerName }}
+              {{ currentUser?.name }}
               <span style="padding-right: 15px"></span>
               <ion-icon name="log-out"></ion-icon>
             </button>

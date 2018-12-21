@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,  LoadingController } from 'ionic-angular';
 
 import {
   FormBuilder,
@@ -45,18 +45,15 @@ export class CheckoutPage {
     private commonSrv: CommonProvider,
     private formBuilder: FormBuilder
   ) {
-    this.loadCartItems();
-    this.checkoutForm = this.formBuilder.group({
-      couponCode: [this.couponCode],
-      checkoutMethod: [this.checkoutMethod],
-      customerName: [this.customerName],
-      shippingPhone: [this.shippingPhone],
-      shippingEmail: [this.shippingEmail],
-      shippingCity: [this.shippingCity],
-      shippingAddress: [this.shippingAddress],
-      shippingNote: [this.shippingNote]
-    });
     this.citySelection = this.commonSrv.COMMON_CITIES;
+  }
+
+  ionViewCanEnter() {
+    var user = this.commonSrv.getUser();
+    if (!user) this.navCtrl.setRoot("LoginPage");
+    if (!this.customerName) this.customerName = user ? user.name : 'Khách';
+    this.loadCartItems();
+    this.loadFormItems();
   }
 
   loadCartItems() {
@@ -79,16 +76,18 @@ export class CheckoutPage {
     loader.dismiss();
   }
 
-  ionViewDidLoad() {
-    this.customerName = "Khách";
+  loadFormItems(){
+    this.checkoutForm = this.formBuilder.group({
+      couponCode: [this.couponCode],
+      checkoutMethod: [this.checkoutMethod],
+      customerName: [this.customerName],
+      shippingPhone: [this.shippingPhone],
+      shippingEmail: [this.shippingEmail],
+      shippingCity: [this.shippingCity],
+      shippingAddress: [this.shippingAddress],
+      shippingNote: [this.shippingNote]
+    });
   }
-
-  ionViewWillEnter() {
-    var user = true;
-    if (!user) this.navCtrl.setRoot("LoginPage");
-  }
-
-  ionViewCanEnter() {}
 
   placeOrder2() {
     console.log(this);
@@ -102,7 +101,8 @@ export class CheckoutPage {
     var user = this.commonSrv.getUser();
     if (user) {
       let orderObj = this.checkoutForm.value;
-      orderObj.accountName = user.customerName;
+      orderObj.accountId = user.id;
+      orderObj.accountName = user.name;
       orderObj.shippingFee = this.shippingFee;
       orderObj.productAmt = this.productAmt;
       orderObj.totalBaseAmount = this.totalBaseAmount;

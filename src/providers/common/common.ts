@@ -115,4 +115,8 @@ export class CommonProvider {
     return this.userService._user;
   }
 
+  isAdmin(){
+    return this.userService.isAdmin();
+  }
+
 }

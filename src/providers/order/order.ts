@@ -4,7 +4,7 @@ import { Order } from '../../models/order';
 import { Api } from '../api/api';
 import { CommonProvider } from '../../providers/common/common';
 
-export const ORDER_NEW = "New";
+const ORDER_NEW = "New";
 
 @Injectable()
 export class OrderProvider {

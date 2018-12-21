@@ -315,10 +315,18 @@
   },
   "users": [
     {
-      "name": "Test Human",
-      "email": "test@example.com",
+      "name": "Admin Account",
+      "email": "admin@alohaspa.vn",
       "password": "123456",
+      "role": 1,
       "id": 1
+    },
+    {
+      "name": "Customer 1",
+      "email": "cust1@alohaspa.vn",
+      "password": "123456",
+      "role": 2,
+      "id": 2
     }
   ],
   "orders": [
