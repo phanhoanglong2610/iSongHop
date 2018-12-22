@@ -8,6 +8,7 @@ import { Observable } from 'rxjs/observable';
 @Injectable()
 export class Api {
   url: string = 'http://localhost:3000';
+  url2: string = 'https://zaloha-json.herokuapp.com';
 
   constructor(public http: HttpClient) {
   }
