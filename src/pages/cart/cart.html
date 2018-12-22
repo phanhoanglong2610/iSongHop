@@ -21,16 +21,7 @@
       <ion-card-content>
         <ion-row>
           <ion-col col-7>
-            <h3 style="margin: 7px" text-left>{{itm.name}}</h3>
-
-            <div class="itm-footer">
-              <span (click)="removeItem(itm)" class="remove">
-                {{'BTN_REMOVE' | translate}}
-              </span>
-              <span class="price">
-                {{'LBL_QUANTITY' | translate}}: {{itm.count}}
-              </span>
-            </div>
+            <h3 color="primary" padding-10 text-left>{{itm.name}} X{{itm.count}}</h3>
           </ion-col>
           <ion-col>
             <ion-item>
@@ -38,10 +29,21 @@
                 <img style="float: right;" src="{{itm.picture}}">
               </ion-avatar>
             </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-7>
+            <span>
+              <button ion-button round=true type="button" color="secondary" (click)="removeItem(itm)" >
+                {{'BTN_REMOVE' | translate}}
+              </button>
+            </span>
+          </ion-col>
+          <ion-col>
             <p class="item-price" text-right>
               {{itm.totalPrice | currency:'VND':'symbol':'1.0-2'}}
             </p>
-          </ion-col>
+          </ion-col> 
         </ion-row>
       </ion-card-content>
     </ion-card>
@@ -56,7 +58,7 @@
     </ion-row>
     <ion-row>
       <ion-col class="addCart" (click)="checkOut()">
-        <button round=true ion-button full color="secondary">
+        <button round=true ion-button full color="primary">
           {{'BTN_CHECKOUT' | translate}}
         </button>
       </ion-col>

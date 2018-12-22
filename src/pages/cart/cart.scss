@@ -28,19 +28,6 @@ page-cart {
         padding: 8px !important;
         ion-col {
           padding: 0;
-          span.price {
-            right: 0;
-            position: absolute;
-            bottom: 0;
-          }
-          span.remove {
-            left: 0;
-            position: absolute;
-            bottom: 0;
-            background: #ff0000;
-            padding: 3px 10px;
-            color: #fff;
-          }
           ion-item {
             min-height: 75px !important;
             padding: 0 !important;
