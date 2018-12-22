@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 
 import { Order } from '../../models/order';
 import { Api } from '../api/api';
-import { CommonProvider } from '../../providers/common/common';
 
 const ORDER_NEW = "New";
 

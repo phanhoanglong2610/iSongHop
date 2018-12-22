@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 
 import { CartProvider } from '../../providers/cart/cart';
-import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the CartPage page.

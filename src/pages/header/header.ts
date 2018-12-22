@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { CommonProvider } from '../../providers/common/common';
 import { CartProvider } from '../../providers/cart/cart';
-import { UserProvider } from '../../providers/user/user';
 
 /**
  * The Header Page is a splash page that quickly describes the app,
