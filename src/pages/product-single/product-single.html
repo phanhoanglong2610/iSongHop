@@ -2,7 +2,7 @@
   <page-header></page-header>
 </ion-header>
 
-<ion-content padding class="checkout-trip common-bg">
+<ion-content padding class="checkout-trip trips common-bg">
   <!--trip information-->
   <div class="trip-info card round">
     <ion-slides pager="true" slidesperview="1">
@@ -111,5 +111,47 @@
       </div>
     </form>
   </div>
+
+  <h5>{{ 'LBL_PRODUCT_RELATED' | translate}}</h5>
+  <ion-row>
+    <ion-col col-6 col-md-4 col-lg-3 col-xl-2 class="trip" *ngFor="let itm of relatedProducts" tappable (click)="openItem(itm)" padding-10>
+      <!-- <div class="background border-bottom" [ngStyle]="{'background-image': 'url(' + itm.picture + ')'}"> -->
+      <!-- </div> -->
+      <div class="card">
+        <img src="{{itm.picture}}" class="background">
+        <ion-row class="primary-bg">
+          <ion-col text-left col-8 class="text-white">
+            <h6 class="" ion-text>{{ itm.name }}</h6>
+          </ion-col>
+          <ion-col text-right>
+            <span class="pull-right text-white" ion-text>
+              <h6>{{itm.price | currency:'VND':'symbol': '1.0-2'}}</h6>
+            </span>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <h5>{{ 'LBL_PRODUCT_FEATURED' | translate}}</h5>
+  <ion-row>
+    <ion-col col-6 col-md-4 col-lg-3 col-xl-2 class="trip" *ngFor="let itm of relatedProducts" tappable (click)="openItem(itm)" padding-10>
+      <!-- <div class="background border-bottom" [ngStyle]="{'background-image': 'url(' + itm.picture + ')'}"> -->
+      <!-- </div> -->
+      <div class="card">
+        <img src="{{itm.picture}}" class="background">
+        <ion-row class="primary-bg">
+          <ion-col text-left col-8 class="text-white">
+            <h6 class="" ion-text>{{ itm.name }}</h6>
+          </ion-col>
+          <ion-col text-right>
+            <span class="pull-right text-white" ion-text>
+              <h6>{{itm.price | currency:'VND':'symbol': '1.0-2'}}</h6>
+            </span>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-col>
+  </ion-row>
 
 </ion-content>

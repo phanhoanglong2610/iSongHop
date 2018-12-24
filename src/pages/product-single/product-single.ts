@@ -10,7 +10,8 @@ import {
 
 import { CommonProvider } from '../../providers/common/common';
 import { CartProvider } from '../../providers/cart/cart';
-
+import { Product } from '../../models/product';
+import { Products } from '../../providers';
 
 /**
  * Generated class for the ProductSinglePage page.
@@ -35,6 +36,11 @@ export class ProductSinglePage {
   isLoggedIn: boolean = false;
   starSelection: any[] = [];
 
+  // Other Products
+  relatedProducts: any[] = [];
+  featuredProducts: any[] = [];
+  newProducts: any[] = [];
+
   // Form Info
   reviewForm: FormGroup;
   reviewContent: string;
@@ -46,6 +52,7 @@ export class ProductSinglePage {
     private cartService: CartProvider,
     private toastCtrl: ToastController,
     private formBuilder: FormBuilder,
+    public productService: Products,
     public api: Api
   ) {
     if (this.navParams.get("product")) {
@@ -60,12 +67,21 @@ export class ProductSinglePage {
   }
   ionViewDidEnter(){
   	this.getSingleProduct();
+    this.getRelatedProducts(this.selectProduct.cat_id);
   }
 
   getSingleProduct() {
     if (window.localStorage.getItem('selectedProduct') != 'undefined') {
       this.selectProduct = JSON.parse(window.localStorage.getItem('selectedProduct'))
     }
+  }
+
+  getRelatedProducts(cat_id){
+    var product_cat_id = cat_id || 12;
+    this.productService.query({cat_id: product_cat_id}).subscribe(data => {
+      this.relatedProducts = data;
+      this.featuredProducts = data;
+    })
   }
  
   ionViewDidLoad() {
@@ -135,6 +151,13 @@ export class ProductSinglePage {
 
   clickShare(){
     this.commonSrv.presentToast('Chức năng chưa hoàn thiện!');
+  }
+
+  openItem(item: Product) {
+    this.navCtrl.push('ProductSinglePage', {
+      product: item,
+      slug: item.slug
+    });
   }
 
 }
