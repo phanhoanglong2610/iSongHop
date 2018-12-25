@@ -1,24 +1,30 @@
 import { Injectable } from '@angular/core';
 
 import { Order } from '../../models/order';
+import { CommonProvider } from '../../providers/common/common';
 import { Api } from '../api/api';
 
 const ORDER_NEW = "New";
 
 @Injectable()
 export class OrderProvider {
+  user: any;
 
-  constructor(public api: Api) { }
+  constructor(public api: Api, private commonSrv: CommonProvider) {
+    this.user = this.commonSrv.getUser();
+  }
 
   query(params?: any) {
-    return this.api.get('/orders', params);
+    return this.api.get('orders', params);
+  }
+
+  filter(params?: any){
+    var filter = params["filter"];
+    return this.api.get('orders?' + filter, params);  
   }
 
   add(item: Order) {
-    let orderObject = item;
-    orderObject.orderRef = this.makeOrderRef(10);
-    orderObject.orderStatus = ORDER_NEW;
-
+    let orderObject = this.initOrder(item);
     let seq = this.api.post('orders', orderObject).share();
 
     seq.subscribe((res: any) => {
@@ -46,6 +52,16 @@ export class OrderProvider {
       text += possible.charAt(Math.floor(Math.random() * possible.length));
 
     return text;
+  }
+
+  initOrder(item){
+    let orderObject = item;
+    orderObject.orderRef = this.makeOrderRef(10);
+    orderObject.orderStatus = ORDER_NEW;
+    orderObject.orderStar = 5;
+    orderObject.orderReview = "Good";
+    orderObject.userId = this.user.id;
+    return orderObject;
   }
 
 }

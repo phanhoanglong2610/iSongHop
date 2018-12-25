@@ -1,0 +1,131 @@
+<ion-header>
+  <page-header></page-header>
+</ion-header>
+
+<ion-content padding class="checkout-trip trips detail-bg">
+  <ion-toolbar padding color="light" class="title-header round">
+    <p ion-text no-margin class="text-white">
+      <strong>{{'LBL_ORDER' | translate}}</strong>
+    </p>
+  </ion-toolbar>
+
+  <h5>{{ 'LBL_ORDER' | translate}}</h5>
+  <div class="trip-info card round">
+    <ion-grid padding>
+      <ion-row>
+        <ion-col width-66>
+          <h5 ion-text color="primary">Mã đơn hàng: {{ selectOrder?.orderRef }}</h5>
+        </ion-col>
+        <ion-col col-4 text-center>
+          <div>
+            <span *ngFor="let dummy of ' '.repeat(selectOrder?.star).split(''), let x = index">
+              <ion-icon name="star"></ion-icon>
+            </span>
+            <span *ngIf="selectOrder?.star_half">
+              <ion-icon name="star-half"></ion-icon>
+            </span>
+            <span *ngFor="let dummy of ' '.repeat(5 - selectOrder?.star - (selectOrder?.star_half ? 1 : 0)).split(''), let x = index">
+              <ion-icon name="star" class="no-star"></ion-icon>
+            </span>
+          </div>
+          <h5 ion-text color="primary" class="bold item-price" no-margin>{{ selectOrder?.totalAmount | currency:'VND':'symbol': '1.0-2'}}</h5>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-3 text-right><h5>Trạng thái:</h5></ion-col>
+        <ion-col col-8 text-left><h5 ion-text color="primary">{{ selectOrder?.orderStatus || "Mới" }}</h5></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-3 text-right><h5>Ngày mua:</h5></ion-col>
+        <ion-col col-8 text-left><h5 ion-text color="primary">{{ selectOrder?.orderDate || "25-12-2018" }}</h5></ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <h5>{{ 'LBL_CART' | translate}}</h5>
+  <div class="card round" margin-top margin-bottom padding-10>
+    <ion-row *ngFor="let itm of selectOrder?.cartItems">
+      <ion-col col-7>
+        <h6 style="padding-left: 7px">{{itm.name}}</h6>
+        <ion-row>
+          <ion-col col-6 style="padding-left: 7px" text-left>
+            {{'LBL_QUANTITY' | translate}}: {{itm.count}}
+          </ion-col>
+          <ion-col col-6 class="item-price" text-right>
+            {{itm.totalPrice | currency:'VND':'symbol':'1.0-2'}}
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <div class="thumb">
+            <img style="float: right;" src="{{itm.picture}}">
+          </div>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <h5>{{ 'LBL_SHIPPING_INFO' | translate}}</h5>
+  <div class="card round" margin-top margin-bottom padding-10>
+    <ion-item>
+      <ion-label>{{ 'LBL_SHIPPING_NAME' | translate }}: {{ selectOrder?.customerName }}</ion-label>
+      </ion-item>
+    <ion-item>
+      <ion-label>{{ 'LBL_SHIPPING_PHONE' | translate }}: {{ selectOrder?.shippingPhone }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ 'LBL_SHIPPING_EMAIL' | translate }}: {{ selectOrder?.shippingEmail }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ 'LBL_SHIPPING_CITY' | translate }}: {{ selectOrder?.shippingCity }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ 'LBL_SHIPPING_ADDRESS' | translate }}: {{ selectOrder?.shippingAddress }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ 'LBL_SHIPPING_NOTE' | translate }}: {{ selectOrder?.shippingNote }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ 'LBL_PAYMENT_METHOD' | translate }}: {{ 'LBL_PAYMENT_' + selectOrder?.checkoutMethod.toUpperCase() | translate }}</ion-label>
+    </ion-item>
+  </div>
+
+  <!-- Review section -->
+  <h5>{{ 'LBL_REVIEW' | translate}}</h5>
+  <div class="card round" margin-top padding-10>
+    <ion-row *ngFor="let itm of selectOrder?.reviews">
+      <ion-col>
+        <div text-left>{{ itm.reviewContent }}</div>
+        <span>
+          {{ itm.reviewStar }} <ion-icon name="star" color="orange"></ion-icon>
+        </span>
+        <span style="font-style: italic;">User ID: ({{ itm.user }})</span>
+      </ion-col>
+    </ion-row>
+    <form *ngIf="isLoggedIn" (submit)="sendReview()" [formGroup]="reviewForm">
+      <ion-textarea formControlName="reviewContent" placeholder="{{ 'MSG_REVIEW_INPUT' | translate }}"></ion-textarea>
+      <div>
+        <ion-row radio-group formControlName="reviewStar" required>
+          <ion-col col-2 *ngFor="let itm of starSelection">
+            <ion-item>
+              <ion-label text-right>
+                {{itm}} <ion-icon name="star" color="orange"></ion-icon>
+              </ion-label>
+              <ion-radio value="{{itm}}"></ion-radio>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col text-center>
+            <button round=true ion-button color="secondary" type="submit">
+              {{'BTN_REVIEW_SEND' | translate}}
+            </button>              
+          </ion-col> 
+        </ion-row>
+      </div>
+    </form>
+  </div>
+
+  
+</ion-content>

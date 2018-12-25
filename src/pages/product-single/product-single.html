@@ -117,8 +117,8 @@
     <ion-col col-6 col-md-4 col-lg-3 col-xl-2 class="trip" *ngFor="let itm of relatedProducts" tappable (click)="openItem(itm)" padding-10>
       <!-- <div class="background border-bottom" [ngStyle]="{'background-image': 'url(' + itm.picture + ')'}"> -->
       <!-- </div> -->
-      <div class="card">
-        <img src="{{itm.picture}}" class="background">
+      <div class="card" text-center>
+        <img src="{{itm.picture}}" class="background thumb-image">
         <ion-row class="primary-bg">
           <ion-col text-left col-8 class="text-white">
             <h6 class="" ion-text>{{ itm.name }}</h6>
@@ -138,8 +138,8 @@
     <ion-col col-6 col-md-4 col-lg-3 col-xl-2 class="trip" *ngFor="let itm of relatedProducts" tappable (click)="openItem(itm)" padding-10>
       <!-- <div class="background border-bottom" [ngStyle]="{'background-image': 'url(' + itm.picture + ')'}"> -->
       <!-- </div> -->
-      <div class="card">
-        <img src="{{itm.picture}}" class="background">
+      <div class="card" text-center>
+        <img src="{{itm.picture}}" class="background thumb-image">
         <ion-row class="primary-bg">
           <ion-col text-left col-8 class="text-white">
             <h6 class="" ion-text>{{ itm.name }}</h6>

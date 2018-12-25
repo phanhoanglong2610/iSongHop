@@ -29,7 +29,7 @@ export class MyApp {
     { title: 'Đăng nhập', component: 'LoginPage', icon: 'log-in'},
 
     { title: 'Sản phẩm yêu thích', component: 'ProductListPage', icon: 'bookmark', params: {cat_id: 11, slug: 'dich-vu-spa-1', cat_name: 'Dịch vụ Spa 1', filter: 'inFav=1'}},
-    { title: 'Đơn hàng', component: 'OrderPage', icon: 'book'},
+    { title: 'Đơn hàng', component: 'OrderListPage', icon: 'book', auth: true},
 
     { title: 'Tutorial', component: 'TutorialPage', icon: 'home'},
     { title: 'Tabs', component: 'TabsPage', icon: 'home'},
@@ -54,7 +54,7 @@ export class MyApp {
     { title: 'Về chúng tôi', component: 'WelcomePage' , icon: 'cafe'},
     { title: 'Sản phẩm yêu thích', component: 'ProductListPage', icon: 'bookmark', params: {cat_id: 11, slug: 'dich-vu-spa-1', cat_name: 'Dịch vụ Spa 1', filter: 'inFav=1'}},
     { title: 'Giỏ hàng', component: 'CartPage', icon: 'cart'},
-    { title: 'Đơn hàng', component: 'AlohaPage', icon: 'book'},
+    { title: 'Đơn hàng', component: 'OrderListPage', icon: 'book', auth: true},
     { title: 'Điểm thành viên', component: 'AlohaPage', icon: 'snow'},
     { title: 'Giới thiệu khách', component: 'AlohaPage', icon: 'contacts'},
     { title: 'Đăng xuất', component: 'AlohaPage', icon: 'log-out'},
@@ -123,6 +123,16 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component, page.params);
+    if (page.auth){
+      if (!this.user){
+        this.nav.setRoot("LoginPage");
+      }
+      else{
+        this.nav.setRoot(page.component, page.params);
+      }
+    }
+    else{
+      this.nav.setRoot(page.component, page.params);
+    }
   }
 }

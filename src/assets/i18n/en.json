@@ -84,7 +84,7 @@
   "LBL_QUANTITY": "Số lượng",
   "LBL_CART": "Giỏ hàng",
   "LBL_TOTAL": "Tổng cộng",
-  "LBL_ORDER": "Thông tin đơn hàng",
+  "LBL_ORDER_INFO": "Thông tin đơn hàng",
   "LBL_SUBTOTAL": "Tạm tính",
   "LBL_SHIPPING": "Phí vận chuyển",
   "LBL_COUPON": "Mã giảm giá",
@@ -96,6 +96,7 @@
   "LBL_PRODUCT_RELATED": "Sản phẩm tương tự",
   "LBL_PRODUCT_FEATURED": "Sản phẩm nổi bật",
   "LBL_PRODUCT_NEW": "Sản phẩm mới",
+  "LBL_ORDER": "Đơn hàng",
 
   "LBL_SHIPPING_INFO": "Thông tin giao hàng",
   "LBL_SHIPPING_NAME": "Họ và Tên",

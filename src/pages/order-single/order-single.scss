@@ -1,0 +1,28 @@
+page-order-single {
+	div.item-name{
+		font-size: 11pt;
+	}
+	.item-price{
+		font-size: 12pt;
+		color: #f57224;
+	}
+	ion-icon[name='star'],
+	ion-icon[name='star-half']{
+		color: orange;
+	}
+	ion-icon[name='star'].no-star{
+		color: lightgrey;
+	}
+	div.product-detail{
+		padding: 16px;
+	}
+	.item-md{
+		padding-left: 0px;
+		.radio-md{
+			margin: 0px;
+		}
+		.input-wrapper{
+			font-size: 10pt;
+		}
+	}
+}
