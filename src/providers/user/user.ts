@@ -26,6 +26,7 @@ import { Api } from '../api/api';
 @Injectable()
 export class UserProvider {
   _user: any;
+  _user_profile: any;
 
   constructor(public api: Api) { }
 
@@ -39,9 +40,11 @@ export class UserProvider {
 
     seq.subscribe((res: any) => {
       this._loggedIn(res[0]);
+      this.setUserProfile();
     }, err => {
       console.error('ERROR', err);
     });
+
 
     return seq;
   }
@@ -65,11 +68,23 @@ export class UserProvider {
     return seq;
   }
 
+  setUserProfile(){
+    var user_id = this._user.id;
+    let seq2 = this.api.get('user_profiles?userId=' + user_id);
+
+    seq2.subscribe((res: any) => {
+      this._user_profile= res[0];
+    }, err => {
+      console.error('ERROR', err);
+    });
+  }
+
   /**
    * Log the user out, which forgets the session
    */
   logout() {
     this._user = null;
+    this._user_profile = null;
   }
 
   /**
@@ -80,7 +95,7 @@ export class UserProvider {
   }
 
   isLoggedIn(){
-    return !!this._user
+    return !!this._user;
   }
 
   isManager(){
@@ -104,4 +119,9 @@ export class UserProvider {
     if (this.isUser()) return 'User';
     return "Guest";
   }
+
+  getUserProfile() {
+    return this._user_profile;
+  }
+
 }

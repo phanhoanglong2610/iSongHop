@@ -1,0 +1,109 @@
+<ion-header>
+  <page-header></page-header>
+</ion-header>
+
+
+<ion-content padding class="trips detail-bg">
+  <ion-toolbar padding color="light" class="title-header round">
+    <p ion-text no-margin class="text-white">
+      <strong>{{'LBL_USER_TITLE' | translate}}</strong>
+    </p>
+  </ion-toolbar>
+  
+  <!-- Point section -->
+  <h5>{{ 'LBL_POINT_TITLE' | translate}}</h5>
+  <ion-row>
+    <ion-col col-6 col-md-4 col-lg-3 col-xl-2 class="trip" *ngFor="let itm of currentPoints" padding-10>
+      <div class="card round">
+        <ion-row class="primary-bg">
+          <ion-col text-left col-8 class="text-white">
+            <h6 class="" ion-text>{{ itm.name }}: {{ itm.point }}</h6>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <!-- Ref section -->
+  <h5>{{ 'LBL_REF_TITLE' | translate}}</h5>
+  <div class="card round" margin-top margin-bottom padding-10>
+    <ion-row>
+      <ion-col col-8 text-left>
+        <span>{{ 'MSG_REF_CODE' | translate}}: {{ userProfile.ref }}</span>
+      </ion-col>
+      <ion-col col-4 text-right>
+        <button round=true ion-button button-small color="secondary" (click)='copyRefCode()' type="button">
+          COPY
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-8 text-left>
+        <span>{{ 'MSG_REF_LINK' | translate}}: http://alohaspa.vn/signup?ref={{ userProfile.ref }}</span>
+      </ion-col>
+      <ion-col col-4 text-right>
+        <button round=true ion-button button-small color="secondary" (click)='copyRefLink()' type="button">
+          COPY
+        </button>
+      </ion-col>
+    </ion-row>
+  </div>
+    
+  <!-- Member section -->
+  <h5>{{ 'LBL_MEMBER_TITLE' | translate}}</h5>
+  <div class="card round">
+    <ion-row>
+      <ion-col col-12 class="trip" padding-10>
+        <div>
+          <ion-row class="primary-bg">
+            <ion-col text-left col-8 class="text-white">
+              <h6 class="" ion-text>{{ userProfile.title }}</h6>
+            </ion-col>
+            <ion-col text-right>
+              <span class="item-price" ion-text>
+                {{userProfile.turnover_this_month | currency:'VND':'symbol': '1.0-2'}}
+              </span>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col text-left col-12 *ngFor="let itm of userProfile.turnovers">
+              <h6 class="" ion-text>{{itm.name}}: {{itm.turnover}}</h6>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+    <!-- Legend section -->
+  <div class="card round" margin-top margin-bottom>
+    <ion-row>
+      <ion-col col-12 class="trip" padding-10>
+        <ion-row>
+          <ion-col text-left col-12>
+            <h6 class="" ion-text>Ví C1 (Hoa hồng): Để rút tiền mặt, mua hàng và dịch vụ</h6>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col text-left col-12>
+            <h6 class="" ion-text>Ví C2 (Hoa hồng): Để mua hàng và dịch vụ</h6>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col text-left col-12>
+            <h6 class="" ion-text>Ví B (Điểm thưởng): Để mua dịch vụ</h6>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col text-left col-12>
+            <h6 class="" ion-text>Ví D1 (Tiền mua gói khởi nghiệp): Để mua hàng và dịch vụ</h6>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col text-left col-12>
+            <h6 class="" ion-text>Ví D2 (Tiền mua gói khởi nghiệp): Để mua dịch vụ</h6>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

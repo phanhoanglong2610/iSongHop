@@ -55,7 +55,7 @@ export class MyApp {
     { title: 'Sản phẩm yêu thích', component: 'ProductListPage', icon: 'bookmark', params: {cat_id: 11, slug: 'dich-vu-spa-1', cat_name: 'Dịch vụ Spa 1', filter: 'inFav=1'}},
     { title: 'Giỏ hàng', component: 'CartPage', icon: 'cart'},
     { title: 'Đơn hàng', component: 'OrderListPage', icon: 'book', auth: true},
-    { title: 'Điểm thành viên', component: 'AlohaPage', icon: 'snow'},
+    { title: 'Điểm thành viên', component: 'UserProfilePage', icon: 'snow', auth: true},
     { title: 'Giới thiệu khách', component: 'AlohaPage', icon: 'contacts'},
     { title: 'Đăng xuất', component: 'AlohaPage', icon: 'log-out'},
   ]

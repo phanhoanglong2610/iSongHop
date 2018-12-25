@@ -455,5 +455,41 @@
     }
   ],
   "user_likes": [],
-  "user_favs": []
+  "user_favs": [],
+  "user_profiles": [
+    {
+      "id": 1,
+      "userId": 4,
+      "zb": 5,
+      "zc1": 5,
+      "zc2": 5,
+      "zd1": 5,
+      "zd2": 5,
+      "ref": "long123",
+      "title": "Đại lý cấp 1",
+      "turnover_this_month": 200000,
+      "turnovers": [
+        {
+          "name": "F1 >= 10tr",
+          "turnover": 200000
+        },
+        {
+          "name": "F1 VIP",
+          "turnover": 200000
+        },
+        {
+          "name": "F1 VIP 1*",
+          "turnover": 200000
+        },
+        {
+          "name": "F1 VIP 2*",
+          "turnover": 200000
+        },
+        {
+          "name": "F1 VIP 3*",
+          "turnover": 200000
+        }
+     ]
+    }
+  ]
 }

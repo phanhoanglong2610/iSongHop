@@ -115,6 +115,10 @@ export class CommonProvider {
     return this.userService._user;
   }
 
+  getUserProfile(){
+    return this.userService.getUserProfile();
+  }
+
   getRole(){
     return this.userService.getRole();
   }
