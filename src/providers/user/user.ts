@@ -1,8 +1,11 @@
 import 'rxjs/add/operator/toPromise';
 
 import { Injectable } from '@angular/core';
+import { Storage } from '@ionic/storage';
 
 import { Api } from '../api/api';
+
+const USER_KEY = "currentUser";
 
 /**
  * Most apps have the concept of a UserProvider. This is a simple provider
@@ -28,7 +31,11 @@ export class UserProvider {
   _user: any;
   _user_profile: any;
 
-  constructor(public api: Api) { }
+  constructor(public api: Api, public storage: Storage) { 
+    this.storage.get(USER_KEY).then(user => {
+      this._user = user;
+    })
+  }
 
   /**
    * Send a POST request to our login endpoint with the data
@@ -39,13 +46,11 @@ export class UserProvider {
     let seq = this.api.get('users?email=' + accountInfo.email);
 
     seq.subscribe((res: any) => {
-      this._loggedIn(res[0]);
+      this.setLoggedIn(res[0]);
       this.setUserProfile();
     }, err => {
       console.error('ERROR', err);
     });
-
-
     return seq;
   }
 
@@ -59,7 +64,7 @@ export class UserProvider {
     seq.subscribe((res: any) => {
       // If the API returned a successful response, mark the user as logged in
       if (res.status == 'success') {
-        this._loggedIn(res);
+        this.setLoggedIn(res);
       }
     }, err => {
       console.error('ERROR', err);
@@ -69,7 +74,7 @@ export class UserProvider {
   }
 
   setUserProfile(){
-    var user_id = this._user.id;
+    var user_id = this.getUser().id;
     let seq2 = this.api.get('user_profiles?userId=' + user_id);
 
     seq2.subscribe((res: any) => {
@@ -83,6 +88,7 @@ export class UserProvider {
    * Log the user out, which forgets the session
    */
   logout() {
+    this.storage.remove(USER_KEY);
     this._user = null;
     this._user_profile = null;
   }
@@ -90,8 +96,9 @@ export class UserProvider {
   /**
    * Process a login/signup response to store user data
    */
-  _loggedIn(res) {
+  setLoggedIn(res) {
     this._user = res;
+    this.storage.set(USER_KEY, res);
   }
 
   isLoggedIn(){
@@ -112,7 +119,7 @@ export class UserProvider {
   }
 
   getRole(){
-    if (!this._user) return "Guest";
+    if (!this.isLoggedIn()) return "Guest";
     if (this.isManager()) return 'Manager';
     if (this.isStaff()) return 'Staff';
     if (this.isShipper()) return 'Shipper';
@@ -122,6 +129,14 @@ export class UserProvider {
 
   getUserProfile() {
     return this._user_profile;
+  }
+
+  getUser(){
+    return this._user;
+  }
+
+  getUserFromStorage(){
+    return this.storage.get(USER_KEY);
   }
 
 }

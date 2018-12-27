@@ -13,7 +13,7 @@ import { CommonProvider } from '../providers/common/common';
 })
 export class MyApp {
   rootPage = FirstRunPage;
-  user: any;
+  currentUser: any;
   userRole: string;
   pages: any[] = [];
 
@@ -68,29 +68,36 @@ export class MyApp {
       this.splashScreen.hide();
     });
     this.initTranslate();
-  }
+ }
 
   ngAfterViewInit() {
     this.nav.viewDidEnter.subscribe((data) => {
-      this.user = this.commonSrv.getUser();
-      this.userRole = this.commonSrv.getRole();
-      switch (this.userRole){
-        case 'Admin':
-          this.pages = this.pages_admin;
-          break;
-        case 'Manager':
-          this.pages = this.pages_manager;
-          break;
-        case 'Shipper':
-          this.pages = this.pages_shipper;
-          break;
-        case 'User':
-          this.pages = this.pages_user;
-          break;
-        default:
+      this.commonSrv.getUserFromStorage().then(user => {
+        if (user){
+          this.currentUser = user;
+          this.userRole = this.commonSrv.getRole();
+          switch (this.userRole){
+            case 'Admin':
+              this.pages = this.pages_admin;
+              break;
+            case 'Manager':
+              this.pages = this.pages_manager;
+              break;
+            case 'Shipper':
+              this.pages = this.pages_shipper;
+              break;
+            case 'User':
+              this.pages = this.pages_user;
+              break;
+            default:
+              this.pages = this.pages_guest;
+              break;
+          }
+        }
+        else{
           this.pages = this.pages_guest;
-          break;
-      }
+        }
+      });
     });
   }
 
@@ -124,7 +131,7 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     if (page.auth){
-      if (!this.user){
+      if (!this.currentUser){
         this.nav.setRoot("LoginPage");
       }
       else{

@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastController } from 'ionic-angular';
 import { UserProvider } from '../user/user';
-import { Storage } from '@ionic/storage';
 
 /*
   Generated class for the CommonProvider provider.
@@ -83,8 +82,7 @@ export class CommonProvider {
 
   constructor(public http: HttpClient,
     public toastCtrl: ToastController,
-    private userService: UserProvider,
-    public storage: Storage
+    private userService: UserProvider
     ) {
   }
 
@@ -112,7 +110,7 @@ export class CommonProvider {
   }
 
   getUser(){
-    return this.userService._user;
+    return this.userService.getUser();
   }
 
   getUserProfile(){
@@ -137,6 +135,10 @@ export class CommonProvider {
 
   isUser(){
     return this.userService.isUser();
+  }
+
+  getUserFromStorage(){
+    return this.userService.getUserFromStorage();
   }
 
 }

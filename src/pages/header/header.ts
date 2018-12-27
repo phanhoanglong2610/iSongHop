@@ -31,7 +31,15 @@ export class HeaderPage {
       .then(val => {
         this.noOfCartItems = val.length;
       });
-    this.isLoggedIn = this.checkLoggedIn();
+    this.commonSrv.getUserFromStorage().then(user => {
+      if (user){
+        this.isLoggedIn = true;
+        this.currentUser = user;
+      }
+      else{
+        this.isLoggedIn = false;
+      }
+    });
   }
 
   signUp() {
@@ -58,11 +66,4 @@ export class HeaderPage {
   	this.navCtrl.push('CartPage');
   }
 
-  checkLoggedIn(){
-    var logInStatus = this.commonSrv.isLoggedIn();
-    if (logInStatus){
-      this.currentUser = this.commonSrv.getUser();
-    }
-    return logInStatus;
-  }  
 }
