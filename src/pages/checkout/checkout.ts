@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams,  LoadingController } from 'ionic-angular';
 
 import {
+  Validators,
   FormBuilder,
   FormGroup
 } from '@angular/forms';
@@ -79,12 +80,12 @@ export class CheckoutPage {
   loadFormItems(){
     this.checkoutForm = this.formBuilder.group({
       couponCode: [this.couponCode],
-      checkoutMethod: [this.checkoutMethod],
-      customerName: [this.customerName],
-      shippingPhone: [this.shippingPhone],
+      checkoutMethod: [this.checkoutMethod, Validators.required],
+      customerName: [this.customerName, Validators.required],
+      shippingPhone: [this.shippingPhone, Validators.required],
       shippingEmail: [this.shippingEmail],
-      shippingCity: [this.shippingCity],
-      shippingAddress: [this.shippingAddress],
+      shippingCity: [this.shippingCity, Validators.required],
+      shippingAddress: [this.shippingAddress, Validators.required],
       shippingNote: [this.shippingNote]
     });
   }
@@ -101,7 +102,7 @@ export class CheckoutPage {
     var user = this.commonSrv.getUser();
     if (user) {
       let orderObj = this.checkoutForm.value;
-      orderObj.accountId = user.id;
+      orderObj.userId = user.id;
       orderObj.accountName = user.name;
       orderObj.shippingFee = this.shippingFee;
       orderObj.productAmt = this.productAmt;
@@ -112,6 +113,9 @@ export class CheckoutPage {
       this.orderService.add(orderObj).subscribe(() => {
         // this.navCtrl.setRoot('AlohaPage');
         loader.dismiss();
+        this.cartService.removeAllCartItems().then(res => {
+          this.navCtrl.setRoot("AlohaPage");
+        });
         this.commonSrv.presentToast('Đặt hàng thành công.');
       });
     } else {

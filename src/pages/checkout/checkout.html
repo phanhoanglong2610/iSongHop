@@ -181,7 +181,7 @@
     </div>
 
     <ion-card>
-      <button block ion-button color="primary" type="submit">
+      <button block ion-button color="primary" type="submit" [disabled]="!checkoutForm.valid">
         {{ 'BTN_ORDER' | translate}}  
       </button>
       <button block ion-button color="secondary" type="button" (click)="goToCart()">

@@ -452,6 +452,111 @@
           "user": 4
         }
       ]
+    },
+    {
+      "couponCode": null,
+      "checkoutMethod": "cod",
+      "customerName": "Customer 1",
+      "shippingPhone": "222",
+      "shippingEmail": null,
+      "shippingCity": "Thành phố Hồ Chí Minh",
+      "shippingAddress": "43434",
+      "shippingNote": null,
+      "accountId": 4,
+      "accountName": "Customer 1",
+      "shippingFee": 20000,
+      "productAmt": 3500000,
+      "totalBaseAmount": 3520000,
+      "totalAmount": 3520000,
+      "cartItems": [
+        {
+          "product_id": 1002,
+          "name": "Chăm sóc chuyên sâu sau Peeling",
+          "picture": "../assets/img/products/product-1002.jpg",
+          "count": 1,
+          "totalPrice": 1500000
+        },
+        {
+          "product_id": 1001,
+          "name": "White Plus - Trắng sáng chuyên sâu",
+          "picture": "../assets/img/products/product-1001.jpg",
+          "count": 1,
+          "totalPrice": 2000000
+        }
+      ],
+      "orderRef": "GdfDJGaLYz",
+      "orderStatus": "New",
+      "orderStar": 5,
+      "orderReview": "Good",
+      "userId": 4,
+      "id": 5
+    },
+    {
+      "couponCode": null,
+      "checkoutMethod": "cod",
+      "customerName": "Customer 1",
+      "shippingPhone": "sadasd",
+      "shippingEmail": null,
+      "shippingCity": "Thành phố Hồ Chí Minh",
+      "shippingAddress": "sadsda",
+      "shippingNote": null,
+      "userId": 4,
+      "accountName": "Customer 1",
+      "shippingFee": 20000,
+      "productAmt": 3500000,
+      "totalBaseAmount": 3520000,
+      "totalAmount": 3520000,
+      "cartItems": [
+        {
+          "product_id": 1002,
+          "name": "Chăm sóc chuyên sâu sau Peeling",
+          "picture": "../assets/img/products/product-1002.jpg",
+          "count": 1,
+          "totalPrice": 1500000
+        },
+        {
+          "product_id": 1001,
+          "name": "White Plus - Trắng sáng chuyên sâu",
+          "picture": "../assets/img/products/product-1001.jpg",
+          "count": 1,
+          "totalPrice": 2000000
+        }
+      ],
+      "orderRef": "L54L9bXpYU",
+      "orderStatus": "New",
+      "orderStar": 5,
+      "orderReview": "Good",
+      "id": 6
+    },
+    {
+      "couponCode": null,
+      "checkoutMethod": "b",
+      "customerName": "Customer 1",
+      "shippingPhone": "222",
+      "shippingEmail": null,
+      "shippingCity": "Thành phố Hồ Chí Minh",
+      "shippingAddress": "333",
+      "shippingNote": null,
+      "userId": 4,
+      "accountName": "Customer 1",
+      "shippingFee": 20000,
+      "productAmt": 2000000,
+      "totalBaseAmount": 2020000,
+      "totalAmount": 2020000,
+      "cartItems": [
+        {
+          "product_id": 1001,
+          "name": "White Plus - Trắng sáng chuyên sâu",
+          "picture": "../assets/img/products/product-1001.jpg",
+          "count": 1,
+          "totalPrice": 2000000
+        }
+      ],
+      "orderRef": "6h0ibd0mBr",
+      "orderStatus": "New",
+      "orderStar": 5,
+      "orderReview": "Good",
+      "id": 7
     }
   ],
   "user_likes": [],
@@ -489,7 +594,7 @@
           "name": "F1 VIP 3*",
           "turnover": 200000
         }
-     ]
+      ]
     }
   ]
 }

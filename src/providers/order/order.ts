@@ -60,7 +60,6 @@ export class OrderProvider {
     orderObject.orderStatus = ORDER_NEW;
     orderObject.orderStar = 5;
     orderObject.orderReview = "Good";
-    orderObject.userId = this.user.id;
     return orderObject;
   }
 

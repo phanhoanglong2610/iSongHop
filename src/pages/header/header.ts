@@ -29,7 +29,10 @@ export class HeaderPage {
     this.cartService
       .getCartItems()
       .then(val => {
-        this.noOfCartItems = val.length;
+        if (val)
+          this.noOfCartItems = val.length;
+        else
+          this.noOfCartItems = 0;
       });
     this.commonSrv.getUserFromStorage().then(user => {
       if (user){
