@@ -34,6 +34,7 @@ export class UserProvider {
   constructor(public api: Api, public storage: Storage) { 
     this.storage.get(USER_KEY).then(user => {
       this._user = user;
+      this.setUserProfile();
     })
   }
 
