@@ -1,3 +1,22 @@
+# Ionic 3 Shopping App
+
+## Note: This is an ionic 3 app, includes many features for a shopping app needed
+
+- User authentication
+- User Profile
+- Category
+- Product
+- Order
+- Cart
+
+## Backend:
+
+- include json-server for API mockup
+- sample data is stored in local json
+- remote api is included and change easily
+
+
+
 # The Ionic Super Starter 🎮
 
 <img src="https://user-images.githubusercontent.com/236501/32385619-bddac0ac-c08c-11e7-9ee4-9c892197191f.png" width="400" />
